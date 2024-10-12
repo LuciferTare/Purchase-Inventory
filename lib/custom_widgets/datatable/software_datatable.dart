@@ -7,10 +7,10 @@ class SoftwareDataTable extends StatefulWidget {
   const SoftwareDataTable({super.key});
 
   @override
-  State<SoftwareDataTable> createState() => _SoftwareDataTableState();
+  State<SoftwareDataTable> createState() => SoftwareDataTableState();
 }
 
-class _SoftwareDataTableState extends State<SoftwareDataTable> {
+class SoftwareDataTableState extends State<SoftwareDataTable> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController specificationController = TextEditingController();
   final TextEditingController totalcostController = TextEditingController();

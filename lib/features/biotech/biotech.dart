@@ -12,10 +12,10 @@ class Biotech extends StatefulWidget {
   const Biotech({super.key});
 
   @override
-  State<Biotech> createState() => _BiotechState();
+  State<Biotech> createState() => BiotechState();
 }
 
-class _BiotechState extends State<Biotech> {
+class BiotechState extends State<Biotech> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 

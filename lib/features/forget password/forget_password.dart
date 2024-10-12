@@ -5,10 +5,10 @@ class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 
   @override
-  State<ForgetPassword> createState() => _ForgetPasswordState();
+  State<ForgetPassword> createState() => ForgetPasswordState();
 }
 
-class _ForgetPasswordState extends State<ForgetPassword> {
+class ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

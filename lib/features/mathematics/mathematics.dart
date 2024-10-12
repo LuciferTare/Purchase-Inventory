@@ -12,10 +12,10 @@ class Mathematics extends StatefulWidget {
   const Mathematics({super.key});
 
   @override
-  State<Mathematics> createState() => _MathematicsState();
+  State<Mathematics> createState() => MathematicsState();
 }
 
-class _MathematicsState extends State<Mathematics> {
+class MathematicsState extends State<Mathematics> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 

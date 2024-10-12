@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:purchase_inventory/utlis/routes.dart';
 
-class Sidebar extends StatelessWidget {
+class Sidebar extends StatefulWidget {
   final double screenWidth;
   final double screenHeight;
 
-  Sidebar({super.key, required this.screenWidth, required this.screenHeight});
+  const Sidebar(
+      {super.key, required this.screenWidth, required this.screenHeight});
 
+  @override
+  State<Sidebar> createState() => SidebarState();
+}
+
+class SidebarState extends State<Sidebar> {
   final List<Map<String, dynamic>> dropdownItems = [
     {'text': 'Botany', 'route': () => onTapBotany()},
     {'text': 'Zoology', 'route': () => onTapZoology()},
@@ -21,8 +27,8 @@ class Sidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: screenWidth * 0.225,
-      height: screenHeight,
+      width: widget.screenWidth * 0.225,
+      height: widget.screenHeight,
       color: const Color(0xFF181A20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

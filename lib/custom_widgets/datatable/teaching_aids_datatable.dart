@@ -7,10 +7,10 @@ class TeachingAidsDataTable extends StatefulWidget {
   const TeachingAidsDataTable({super.key});
 
   @override
-  State<TeachingAidsDataTable> createState() => _TeachingAidsDataTableState();
+  State<TeachingAidsDataTable> createState() => TeachingAidsDataTableState();
 }
 
-class _TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
+class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
   String selectedValue = '1';
 
   final TextEditingController nameController = TextEditingController();

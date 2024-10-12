@@ -17,7 +17,7 @@ class DateField extends StatefulWidget {
 class DateFieldState extends State<DateField> {
   DateTime? selectedDate;
 
-  Future<void> _selectDate(BuildContext context) async {
+  Future<void> _selectDate() async {
     DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate ?? DateTime.now(),
@@ -40,10 +40,13 @@ class DateFieldState extends State<DateField> {
     );
 
     if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-        widget.controller.text = DateFormat('dd-MM-yyyy').format(selectedDate!);
-      });
+      if (mounted) {
+        setState(() {
+          selectedDate = picked;
+          widget.controller.text =
+              DateFormat('dd-MM-yyyy').format(selectedDate!);
+        });
+      }
     }
   }
 
@@ -52,7 +55,7 @@ class DateFieldState extends State<DateField> {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          _selectDate(context);
+          _selectDate();
         },
         child: TextSelectionTheme(
           data: const TextSelectionThemeData(

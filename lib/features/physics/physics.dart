@@ -12,10 +12,10 @@ class Physics extends StatefulWidget {
   const Physics({super.key});
 
   @override
-  State<Physics> createState() => _PhysicsState();
+  State<Physics> createState() => PhysicsState();
 }
 
-class _PhysicsState extends State<Physics> {
+class PhysicsState extends State<Physics> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 

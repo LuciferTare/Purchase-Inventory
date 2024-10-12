@@ -7,10 +7,10 @@ class GlasswareDataTable extends StatefulWidget {
   const GlasswareDataTable({super.key});
 
   @override
-  State<GlasswareDataTable> createState() => _GlasswareDataTableState();
+  State<GlasswareDataTable> createState() => GlasswareDataTableState();
 }
 
-class _GlasswareDataTableState extends State<GlasswareDataTable> {
+class GlasswareDataTableState extends State<GlasswareDataTable> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController capacityController = TextEditingController();
   final TextEditingController rateController = TextEditingController();

@@ -12,10 +12,10 @@ class Botany extends StatefulWidget {
   const Botany({super.key});
 
   @override
-  State<Botany> createState() => _BotanyState();
+  State<Botany> createState() => BotanyState();
 }
 
-class _BotanyState extends State<Botany> {
+class BotanyState extends State<Botany> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 

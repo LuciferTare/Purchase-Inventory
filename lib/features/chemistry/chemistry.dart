@@ -12,10 +12,10 @@ class Chemistry extends StatefulWidget {
   const Chemistry({super.key});
 
   @override
-  State<Chemistry> createState() => _ChemistryState();
+  State<Chemistry> createState() => ChemistryState();
 }
 
-class _ChemistryState extends State<Chemistry> {
+class ChemistryState extends State<Chemistry> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 

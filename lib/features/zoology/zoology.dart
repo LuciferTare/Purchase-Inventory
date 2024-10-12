@@ -12,10 +12,10 @@ class Zoology extends StatefulWidget {
   const Zoology({super.key});
 
   @override
-  State<Zoology> createState() => _ZoologyState();
+  State<Zoology> createState() => ZoologyState();
 }
 
-class _ZoologyState extends State<Zoology> {
+class ZoologyState extends State<Zoology> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 

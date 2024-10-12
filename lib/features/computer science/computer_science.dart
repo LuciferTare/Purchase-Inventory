@@ -12,10 +12,10 @@ class CS extends StatefulWidget {
   const CS({super.key});
 
   @override
-  State<CS> createState() => _CSState();
+  State<CS> createState() => CSState();
 }
 
-class _CSState extends State<CS> {
+class CSState extends State<CS> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 

@@ -8,10 +8,10 @@ class ChemicalDataTable extends StatefulWidget {
   const ChemicalDataTable({super.key});
 
   @override
-  State<ChemicalDataTable> createState() => _ChemicalDataTableState();
+  State<ChemicalDataTable> createState() => ChemicalDataTableState();
 }
 
-class _ChemicalDataTableState extends State<ChemicalDataTable> {
+class ChemicalDataTableState extends State<ChemicalDataTable> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController gradeController = TextEditingController();
   final TextEditingController rateController = TextEditingController();

@@ -5,10 +5,10 @@ class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUp> createState() => SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
+class SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

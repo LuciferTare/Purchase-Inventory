@@ -7,10 +7,10 @@ class InstrumentDataTable extends StatefulWidget {
   const InstrumentDataTable({super.key});
 
   @override
-  State<InstrumentDataTable> createState() => _InstrumentDataTableState();
+  State<InstrumentDataTable> createState() => InstrumentDataTableState();
 }
 
-class _InstrumentDataTableState extends State<InstrumentDataTable> {
+class InstrumentDataTableState extends State<InstrumentDataTable> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController warrantyController = TextEditingController();
   final TextEditingController rateController = TextEditingController();

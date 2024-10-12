@@ -12,10 +12,10 @@ class IT extends StatefulWidget {
   const IT({super.key});
 
   @override
-  State<IT> createState() => _ITState();
+  State<IT> createState() => ITState();
 }
 
-class _ITState extends State<IT> {
+class ITState extends State<IT> {
   int selectedTableIndex = 0;
   String? selectedGrade;
 
