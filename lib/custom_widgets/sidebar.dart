@@ -29,7 +29,7 @@ class SidebarState extends State<Sidebar> {
     return Container(
       width: widget.screenWidth * 0.225,
       height: widget.screenHeight,
-      color: const Color(0xFF181A20),
+      color: const Color(0x0BFFFFFF),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -66,6 +66,7 @@ class SidebarState extends State<Sidebar> {
                       PopupMenuButton<int>(
                         offset: const Offset(0, 50),
                         elevation: 0,
+                        color: Colors.transparent,
                         onSelected: (index) {
                           Navigator.push(
                             context,
@@ -75,7 +76,6 @@ class SidebarState extends State<Sidebar> {
                             ),
                           );
                         },
-                        color: const Color(0xFF181A20),
                         itemBuilder: (context) => List.generate(
                           dropdownItems.length,
                           (index) => PopupMenuItem(
@@ -91,14 +91,12 @@ class SidebarState extends State<Sidebar> {
                                   ),
                                 );
                               },
-                              highlightColor: Colors.transparent,
-                              splashColor: Colors.transparent,
-                              overlayColor: WidgetStateProperty.all<Color>(
+                              overlayColor: const WidgetStatePropertyAll(
                                   Colors.transparent),
                               child: Text(
                                 dropdownItems[index]['text'],
                                 style: const TextStyle(
-                                  color: Color(0xFFD9D9D9),
+                                  color: Color(0xFFFFFFFF),
                                   fontSize: 18,
                                 ),
                               ),
@@ -109,7 +107,7 @@ class SidebarState extends State<Sidebar> {
                           "Department",
                           style: TextStyle(
                             fontSize: 28,
-                            color: Color(0xFFD9D9D9),
+                            color: Color(0xFFFFFFFF),
                           ),
                         ),
                       ),
@@ -133,11 +131,15 @@ class SidebarState extends State<Sidebar> {
                   ),
                   const TextButton(
                     onPressed: onTapLogin,
+                    style: ButtonStyle(
+                        splashFactory: NoSplash.splashFactory,
+                        overlayColor:
+                            WidgetStatePropertyAll(Colors.transparent)),
                     child: Text(
                       "Sign Out",
                       style: TextStyle(
                         fontSize: 28,
-                        color: Color(0xFFD9D9D9),
+                        color: Color(0xFFFFFFFF),
                       ),
                     ),
                   ),

@@ -3,20 +3,22 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:purchase_inventory/features/biotech/binding/biotech_binding.dart';
 import 'package:purchase_inventory/features/botany/binding/botany_binding.dart';
 import 'package:purchase_inventory/features/chemistry/binding/chemistry_binding.dart';
-import 'package:purchase_inventory/features/computer%20science/binding/computer_science_binding.dart';
-import 'package:purchase_inventory/features/information%20technology/binding/information_technology_binding.dart';
+import 'package:purchase_inventory/features/computer_science/binding/computer_science_binding.dart';
+import 'package:purchase_inventory/features/forget_password/binding/forget_password_binding.dart';
+import 'package:purchase_inventory/features/forget_password/forget_password.dart';
+import 'package:purchase_inventory/features/information_technology/binding/information_technology_binding.dart';
 import 'package:purchase_inventory/features/dashboard/binding/dashboard_binding.dart';
 import 'package:purchase_inventory/features/login/binding/login_binding.dart';
 import 'package:purchase_inventory/features/mathematics/binding/mathematics_binding.dart';
 import 'package:purchase_inventory/features/physics/binding/physics_binding.dart';
-import 'package:purchase_inventory/features/sign%20up/binding/sign_up_binding.dart';
-import 'package:purchase_inventory/features/sign%20up/sign_up.dart';
+import 'package:purchase_inventory/features/sign_up/binding/sign_up_binding.dart';
+import 'package:purchase_inventory/features/sign_up/sign_up.dart';
 import 'package:purchase_inventory/features/zoology/binding/zoology_binding.dart';
 import 'package:purchase_inventory/features/biotech/biotech.dart';
 import 'package:purchase_inventory/features/chemistry/chemistry.dart';
-import 'package:purchase_inventory/features/computer%20science/computer_science.dart';
+import 'package:purchase_inventory/features/computer_science/computer_science.dart';
 import 'package:purchase_inventory/features/dashboard/dashboard.dart';
-import 'package:purchase_inventory/features/information%20technology/information_technology.dart';
+import 'package:purchase_inventory/features/information_technology/information_technology.dart';
 import 'package:purchase_inventory/features/login/login.dart';
 import 'package:purchase_inventory/features/botany/botany.dart';
 import 'package:purchase_inventory/features/mathematics/mathematics.dart';
@@ -30,6 +32,7 @@ class MyRoutes {
   static String dashboardRoute = "/Dashboard";
   static String loginRoute = "/Login";
   static String signUpRoute = "/SignUp";
+  static String forgetPasswordRoute = "/ForgetPassword";
   static String botanyRoute = "/Botany";
   static String zoologyRoute = "/Zoology";
   static String physicsRoute = "/Physics";
@@ -67,6 +70,13 @@ class MyRoutes {
       page: () => const SignUp(),
       bindings: [
         SignUpBinding(),
+      ],
+    ),
+    GetPage(
+      name: forgetPasswordRoute,
+      page: () => const ForgetPassword(),
+      bindings: [
+        ForgetPasswordBinding(),
       ],
     ),
     GetPage(
@@ -148,20 +158,8 @@ void onTapCS() {
   Get.offAllNamed(MyRoutes.csRoute);
 }
 
-void onTapDashboard() {
-  Get.offAllNamed(MyRoutes.dashboardRoute);
-}
-
 void onTapIT() {
   Get.offAllNamed(MyRoutes.itRoute);
-}
-
-void onTapLogin() {
-  Get.offAllNamed(MyRoutes.loginRoute);
-}
-
-void onTapSignUp() {
-  Get.offAllNamed(MyRoutes.signUpRoute);
 }
 
 void onTapMaths() {
@@ -174,4 +172,20 @@ void onTapPhysics() {
 
 void onTapZoology() {
   Get.offAllNamed(MyRoutes.zoologyRoute);
+}
+
+void onTapDashboard() {
+  Get.offAllNamed(MyRoutes.dashboardRoute);
+}
+
+void onTapForgetPassword() {
+  Get.offAllNamed(MyRoutes.forgetPasswordRoute);
+}
+
+void onTapLogin() {
+  Get.offAllNamed(MyRoutes.loginRoute);
+}
+
+void onTapSignUp() {
+  Get.offAllNamed(MyRoutes.signUpRoute);
 }

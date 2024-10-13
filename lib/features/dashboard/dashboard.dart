@@ -73,9 +73,8 @@ class DashboardState extends State<Dashboard> {
         'route': () => onTapCS(),
       },
     ];
-
     return Scaffold(
-      backgroundColor: const Color(0xE4181A20),
+      backgroundColor: const Color(0xFF181A20),
       body: Row(
         children: [
           Sidebar(screenWidth: screenWidth, screenHeight: screenHeight),
@@ -139,7 +138,7 @@ class DashboardState extends State<Dashboard> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                              color: const Color(0xFF181A20),
+                              color: const Color(0x0BFFFFFF),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Padding(
@@ -160,7 +159,7 @@ class DashboardState extends State<Dashboard> {
                                   Text(
                                     content['heading']!,
                                     style: const TextStyle(
-                                      color: Color(0xFFD9D9D9),
+                                      color: Color(0xFFFFFFFF),
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -169,7 +168,7 @@ class DashboardState extends State<Dashboard> {
                                   Text(
                                     content['description']!,
                                     style: const TextStyle(
-                                      color: Color(0xFFD9D9D9),
+                                      color: Color(0xFFFFFFFF),
                                       fontSize: 11,
                                     ),
                                   ),

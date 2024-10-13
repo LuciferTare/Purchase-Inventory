@@ -17,7 +17,7 @@ class DateField extends StatefulWidget {
 class DateFieldState extends State<DateField> {
   DateTime? selectedDate;
 
-  Future<void> _selectDate() async {
+  Future<void> _selectDate(BuildContext context) async {
     DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate ?? DateTime.now(),
@@ -28,9 +28,9 @@ class DateFieldState extends State<DateField> {
           data: ThemeData.light().copyWith(
             colorScheme: const ColorScheme.light(
               primary: Color(0xFF181A20),
-              onPrimary: Color(0xFFD9D9D9),
+              onPrimary: Color(0xFFFFFFFF),
               onSurface: Color(0xFF181A20),
-              surface: Color(0xFFD9D9D9),
+              surface: Color(0xFFFFFFFF),
             ),
             dialogBackgroundColor: Colors.white,
           ),
@@ -40,13 +40,10 @@ class DateFieldState extends State<DateField> {
     );
 
     if (picked != null && picked != selectedDate) {
-      if (mounted) {
-        setState(() {
-          selectedDate = picked;
-          widget.controller.text =
-              DateFormat('dd-MM-yyyy').format(selectedDate!);
-        });
-      }
+      setState(() {
+        selectedDate = picked;
+        widget.controller.text = DateFormat('dd-MM-yyyy').format(selectedDate!);
+      });
     }
   }
 
@@ -55,7 +52,7 @@ class DateFieldState extends State<DateField> {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          _selectDate();
+          _selectDate(context);
         },
         child: TextSelectionTheme(
           data: const TextSelectionThemeData(
@@ -68,8 +65,7 @@ class DateFieldState extends State<DateField> {
               decoration: InputDecoration(
                 labelText: widget.labelText,
                 labelStyle: const TextStyle(
-                  color: Color(0x7ED9D9D9),
-                  fontWeight: FontWeight.bold,
+                  color: Color(0x7EFFFFFF),
                 ),
                 filled: false,
                 border: OutlineInputBorder(
@@ -84,8 +80,7 @@ class DateFieldState extends State<DateField> {
                 ),
               ),
               style: const TextStyle(
-                color: Color(0xFFD9D9D9),
-                fontWeight: FontWeight.bold,
+                color: Color(0xFFFFFFFF),
               ),
               obscureText: false,
             ),

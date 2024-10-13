@@ -80,7 +80,7 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
       'Your entry has been submitted.',
       backgroundColor: const Color(0x7E22BB33),
       colorText: Colors.white,
-      margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
+      margin: const EdgeInsets.only(top: 15, left: 20, right: 20),
     );
   }
 
@@ -145,7 +145,7 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                       if (states.contains(WidgetState.hovered)) {
                         return const Color(0xFFFCD535);
                       }
-                      return Colors.transparent;
+                      return const Color(0x13FFFFFF);
                     },
                   ),
                   foregroundColor: WidgetStateProperty.resolveWith<Color?>(
@@ -153,13 +153,13 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                       if (states.contains(WidgetState.hovered)) {
                         return const Color(0xFF181A20);
                       }
-                      return const Color(0xFFD9D9D9);
+                      return const Color(0xFFFFFFFF);
                     },
                   ),
                   side: WidgetStateProperty.resolveWith<BorderSide?>(
                     (states) {
                       return const BorderSide(
-                        color: Color(0x7ED9D9D9),
+                        color: Color(0x7EFFFFFF),
                         width: 1.0,
                       );
                     },
@@ -189,7 +189,7 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                       if (states.contains(WidgetState.hovered)) {
                         return const Color(0xFF107C41);
                       }
-                      return Colors.transparent;
+                      return const Color(0x13FFFFFF);
                     },
                   ),
                   foregroundColor: WidgetStateProperty.resolveWith<Color?>(
@@ -197,7 +197,7 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                       if (states.contains(WidgetState.hovered)) {
                         return const Color(0xFF181A20);
                       }
-                      return const Color(0xFFD9D9D9);
+                      return const Color(0xFFFFFFFF);
                     },
                   ),
                   side: WidgetStateProperty.resolveWith<BorderSide?>(
@@ -209,7 +209,7 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                         );
                       }
                       return const BorderSide(
-                        color: Color(0x7ED9D9D9),
+                        color: Color(0x7EFFFFFF),
                         width: 1.0,
                       );
                     },
@@ -233,27 +233,27 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
           scrollDirection: Axis.horizontal,
           child: DataTable(
             columnSpacing: 30,
-            dataRowColor: WidgetStateProperty.all(const Color(0x3E181A20)),
+            dataRowColor: WidgetStateProperty.all(const Color(0x13FFFFFF)),
             headingRowColor: WidgetStateProperty.all(const Color(0xFF181A20)),
             dividerThickness: 1.0,
             headingTextStyle: const TextStyle(
-              color: Color(0xFFD9D9D9),
+              color: Color(0xFFFFFFFF),
               fontSize: 16,
             ),
             dataTextStyle: const TextStyle(
-              color: Color(0xFFD9D9D9),
+              color: Color(0xFFFFFFFF),
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
             border: TableBorder(
-              top: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
-              bottom: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
-              left: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
-              right: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
+              top: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+              bottom: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+              left: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+              right: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
               horizontalInside:
-                  const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
+                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
               verticalInside:
-                  const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
+                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
               borderRadius: BorderRadius.circular(10.0),
             ),
             columns: const [

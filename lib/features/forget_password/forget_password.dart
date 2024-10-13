@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:purchase_inventory/utlis/routes.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class ForgetPassword extends StatefulWidget {
+  const ForgetPassword({super.key});
 
   @override
-  State<Login> createState() => LoginState();
+  State<ForgetPassword> createState() => ForgetPasswordState();
 }
 
-class LoginState extends State<Login> {
+class ForgetPasswordState extends State<ForgetPassword> {
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
 
-  void login() {
-    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+  void requestPassword() {
+    if (emailController.text.isEmpty) {
       Get.snackbar(
         'Error',
-        'Please fill out all required fields.',
+        'Please fill out required field.',
         backgroundColor: const Color(0x7EBB2124),
         colorText: Colors.white,
         margin: const EdgeInsets.only(top: 15, left: 20, right: 20),
@@ -26,15 +25,14 @@ class LoginState extends State<Login> {
     }
 
     emailController.clear();
-    passwordController.clear();
     Get.snackbar(
       'Success',
-      'You are logged in successfully.',
+      'Your request has been submitted.',
       backgroundColor: const Color(0x7E22BB33),
       colorText: Colors.white,
       margin: const EdgeInsets.only(top: 15, left: 20, right: 20),
     );
-    onTapDashboard();
+    onTapLogin();
   }
 
   @override
@@ -81,11 +79,22 @@ class LoginState extends State<Login> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        'Inventory',
+                        'Forget your password',
                         style: TextStyle(
-                          fontSize: 68,
+                          fontSize: 60,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFFFCD535),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Please enter your Email address to get password.\nYou\'ll receive an email with your new password.',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xBEFFFFFF),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 50),
@@ -109,51 +118,11 @@ class LoginState extends State<Login> {
                           border: OutlineInputBorder(),
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      TextFormField(
-                        controller: passwordController,
-                        cursorColor: const Color(0xFFFFFFFF),
-                        style: const TextStyle(
-                          color: Color(0xFFFFFFFF),
-                        ),
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(
-                            color: Color(0xBEFFFFFF),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xBEFFFFFF)),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFCD535)),
-                          ),
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                            onPressed: onTapForgetPassword,
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              overlayColor: Colors.transparent,
-                            ),
-                            child: const Text(
-                              'Forget Password?',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Color(0xFFFCD535),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                       const SizedBox(height: 30),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: login,
+                          onPressed: requestPassword,
                           style: ButtonStyle(
                             padding: WidgetStateProperty.all(
                               const EdgeInsets.only(top: 12, bottom: 15),
@@ -191,7 +160,7 @@ class LoginState extends State<Login> {
                             ),
                           ),
                           child: const Text(
-                            'Log In',
+                            'Request Email',
                             style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500,

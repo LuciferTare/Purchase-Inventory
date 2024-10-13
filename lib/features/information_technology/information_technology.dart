@@ -23,9 +23,8 @@ class ITState extends State<IT> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
-      backgroundColor: const Color(0xE4181A20),
+      backgroundColor: const Color(0xFF181A20),
       body: Row(
         children: [
           Sidebar(screenWidth: screenWidth, screenHeight: screenHeight),

@@ -35,30 +35,28 @@ class CustomTextFieldState extends State<CustomTextField> {
         height: 45,
         child: TextFormField(
           controller: widget.controller,
-          cursorColor: const Color(0xFFD9D9D9),
+          cursorColor: const Color(0xFFFFFFFF),
           focusNode: _focusNode,
           decoration: InputDecoration(
             labelText: widget.labelText,
             labelStyle: TextStyle(
               color: _focusNode.hasFocus
                   ? const Color(0xFFFCD535)
-                  : const Color(0x7ED9D9D9),
-              fontWeight: FontWeight.bold,
+                  : const Color(0x7EFFFFFF),
             ),
             filled: false,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
             ),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0x7ED9D9D9)),
+              borderSide: BorderSide(color: Color(0x7EFFFFFF)),
             ),
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFFCD535)),
             ),
           ),
           style: const TextStyle(
-            color: Color(0xFFD9D9D9),
-            fontWeight: FontWeight.bold,
+            color: Color(0xFFFFFFFF),
           ),
           obscureText: false,
         ),
@@ -108,8 +106,7 @@ class CustomAMTTextFieldState extends State<CustomAMTTextField> {
             labelStyle: TextStyle(
               color: _focusNode.hasFocus
                   ? const Color(0xFFFCD535)
-                  : const Color(0x7ED9D9D9),
-              fontWeight: FontWeight.bold,
+                  : const Color(0x7EFFFFFF),
             ),
             prefixText: '₹ ',
             prefixStyle: const TextStyle(
@@ -118,17 +115,16 @@ class CustomAMTTextFieldState extends State<CustomAMTTextField> {
             ),
             border: const OutlineInputBorder(),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0x7ED9D9D9)),
+              borderSide: BorderSide(color: Color(0x7EFFFFFF)),
             ),
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFFCD535)),
             ),
           ),
           style: const TextStyle(
-            color: Color(0xFFD9D9D9),
-            fontWeight: FontWeight.bold,
+            color: Color(0xFFFFFFFF),
           ),
-          cursorColor: const Color(0xFFD9D9D9),
+          cursorColor: const Color(0xFFFFFFFF),
         ),
       ),
     );

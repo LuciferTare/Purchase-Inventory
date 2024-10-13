@@ -42,7 +42,7 @@ class CategoryButtonRowState extends State<CategoryButtonRow> {
           borderRadius: BorderRadius.circular(8),
         ),
         backgroundColor:
-            isSelected ? const Color(0xFFD9D9D9) : const Color(0xFF181A20),
+            isSelected ? const Color(0xFFFFFFFF) : const Color(0xFF181A20),
       ),
       onPressed: () {
         widget.onButtonPressed(index);
@@ -51,7 +51,7 @@ class CategoryButtonRowState extends State<CategoryButtonRow> {
         text,
         style: TextStyle(
           fontSize: 24,
-          color: isSelected ? const Color(0xFF181A20) : const Color(0xFFD9D9D9),
+          color: isSelected ? const Color(0xFF181A20) : const Color(0xFFFFFFFF),
         ),
       ),
     );

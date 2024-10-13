@@ -125,27 +125,27 @@ class SState extends State<S> {
           scrollDirection: Axis.horizontal,
           child: DataTable(
             columnSpacing: 30,
-            dataRowColor: WidgetStateProperty.all(const Color(0x3E181A20)),
+            dataRowColor: WidgetStateProperty.all(const Color(0x13FFFFFF)),
             headingRowColor: WidgetStateProperty.all(const Color(0xFF181A20)),
             dividerThickness: 1.0,
             headingTextStyle: const TextStyle(
-              color: Color(0xFFD9D9D9),
+              color: Color(0xFFFFFFFF),
               fontSize: 16,
             ),
             dataTextStyle: const TextStyle(
-              color: Color(0xFFD9D9D9),
+              color: Color(0xFFFFFFFF),
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
             border: TableBorder(
-              top: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
-              bottom: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
-              left: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
-              right: const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
+              top: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+              bottom: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+              left: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+              right: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
               horizontalInside:
-                  const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
+                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
               verticalInside:
-                  const BorderSide(color: Color(0xFFD9D9D9), width: 1.0),
+                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
               borderRadius: BorderRadius.circular(5),
             ),
             columns: const [
