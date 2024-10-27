@@ -115,9 +115,8 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
             Expanded(
               child: Container(
                 height: 45,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(25)),
                 child: DropdownButtonFormField<String>(
                   value: selectedValue,
                   decoration: InputDecoration(
@@ -128,11 +127,9 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                     ),
                     filled: false,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                        borderRadius: BorderRadius.circular(5)),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFFFFFFFF)),
-                    ),
+                        borderSide: BorderSide(color: Color(0xFFFFFFFF))),
                   ),
                   dropdownColor: const Color(0xFF181A20),
                   iconEnabledColor: const Color(0xFFFFFFFF),
@@ -214,8 +211,7 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                 onPressed: submitData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(vertical: 12.0),
-                  ),
+                      const EdgeInsets.symmetric(vertical: 12.0)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -242,8 +238,7 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                   ),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 child: const Text(
@@ -258,8 +253,7 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                 onPressed: exportData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(vertical: 12.0),
-                  ),
+                      const EdgeInsets.symmetric(vertical: 12.0)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -292,8 +286,7 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                   ),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 child: const Text(
@@ -321,15 +314,9 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
-            border: TableBorder(
-              top: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              bottom: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              left: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              right: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              horizontalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              verticalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+            border: TableBorder.all(
+              color: const Color(0xFFFFFFFF),
+              width: 1.0,
               borderRadius: BorderRadius.circular(10.0),
             ),
             columns: const [

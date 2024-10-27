@@ -136,8 +136,7 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
                 onPressed: submitData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(vertical: 12.0),
-                  ),
+                      const EdgeInsets.symmetric(vertical: 12.0)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -164,8 +163,7 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
                   ),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 child: const Text(
@@ -180,8 +178,7 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
                 onPressed: exportData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(vertical: 12.0),
-                  ),
+                      const EdgeInsets.symmetric(vertical: 12.0)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -214,8 +211,7 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
                   ),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 child: const Text(

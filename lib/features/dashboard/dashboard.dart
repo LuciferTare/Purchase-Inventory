@@ -12,72 +12,69 @@ class Dashboard extends StatefulWidget {
 class DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     final List<Map<String, dynamic>> boxContent = [
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Botany',
         'description':
             'Delve into the world of plant science with our collection of botany resources.',
-        'route': () => onTapBotany(),
+        'route': onTapBotany,
       },
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Zoology',
         'description':
             'Discover animal science with our selection of materials, covering wildlife conservation to animal behavior.',
-        'route': () => onTapZoology(),
+        'route': onTapZoology,
       },
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Physics',
         'description':
             'Unlock the universe\'s secrets with our physics resources, from quantum mechanics to relativity.',
-        'route': () => onTapPhysics(),
+        'route': onTapPhysics,
       },
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Chemistry',
         'description':
             'Discover matter\'s building blocks with our chemistry resources, from organic chemistry to materials science.',
-        'route': () => onTapChemistry(),
+        'route': onTapChemistry,
       },
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Biotech',
         'description':
             'Explore biology and technology\'s intersection with our resources on genetic engineering, synthetic biology, and more.',
-        'route': () => onTapBiotech(),
+        'route': onTapBiotech,
       },
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Mathematics',
         'description':
             'Unlock problem-solving skills with our math resources, covering algebra, geometry, calculus, and more.',
-        'route': () => onTapMaths(),
+        'route': onTapMaths,
       },
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Information Technology',
         'description':
             'Explore the world of information technology with our resources on networking, cybersecurity, data analysis, and IT management.',
-        'route': () => onTapIT(),
+        'route': onTapIT,
       },
       {
         'image': 'assets/Images/Botany.png',
         'heading': 'Computer Science',
         'description':
             'Dive into computer science with our resources on programming, algorithms, artificial intelligence, and software engineering.',
-        'route': () => onTapCS(),
+        'route': onTapCS,
       },
     ];
     return Scaffold(
       backgroundColor: const Color(0xFF181A20),
       body: Row(
         children: [
-          Sidebar(screenWidth: screenWidth, screenHeight: screenHeight),
+          const Sidebar(),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -127,15 +124,7 @@ class DashboardState extends State<Dashboard> {
                       itemBuilder: (context, index) {
                         final content = boxContent[index];
                         return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    boxContent[index]['route'](),
-                              ),
-                            );
-                          },
+                          onTap: content['route'],
                           child: Container(
                             decoration: BoxDecoration(
                               color: const Color(0x0BFFFFFF),

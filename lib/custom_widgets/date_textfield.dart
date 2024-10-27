@@ -17,7 +17,7 @@ class DateField extends StatefulWidget {
 class DateFieldState extends State<DateField> {
   DateTime? selectedDate;
 
-  Future<void> _selectDate(BuildContext context) async {
+  Future<void> selectDate(BuildContext context) async {
     DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate ?? DateTime.now(),
@@ -52,36 +52,28 @@ class DateFieldState extends State<DateField> {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          _selectDate(context);
+          selectDate(context);
         },
         child: TextSelectionTheme(
-          data: const TextSelectionThemeData(
-            selectionColor: Color(0x33000000),
-          ),
+          data: const TextSelectionThemeData(selectionColor: Color(0x33000000)),
           child: AbsorbPointer(
             child: TextField(
               controller: widget.controller,
               cursorColor: const Color(0xBE000000),
               decoration: InputDecoration(
                 labelText: widget.labelText,
-                labelStyle: const TextStyle(
-                  color: Color(0x7EFFFFFF),
-                ),
+                labelStyle: const TextStyle(color: Color(0x7EFFFFFF)),
                 filled: false,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
                 focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF000000)),
-                ),
+                    borderSide: BorderSide(color: Color(0xFF000000))),
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 0,
                   horizontal: 7.5,
                 ),
               ),
-              style: const TextStyle(
-                color: Color(0xFFFFFFFF),
-              ),
+              style: const TextStyle(color: Color(0xFFFFFFFF)),
               obscureText: false,
             ),
           ),

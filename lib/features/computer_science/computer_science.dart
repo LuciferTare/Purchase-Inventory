@@ -21,13 +21,11 @@ class CSState extends State<CS> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color(0xFF181A20),
       body: Row(
         children: [
-          Sidebar(screenWidth: screenWidth, screenHeight: screenHeight),
+          const Sidebar(),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),

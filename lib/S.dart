@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:purchase_inventory/custom_widgets/date_textfield.dart';
-import 'package:purchase_inventory/custom_widgets/textfield.dart';
+import 'package:purchase_inventory/utlis/routes.dart';
 
 class S extends StatefulWidget {
   const S({super.key});
@@ -10,176 +9,181 @@ class S extends StatefulWidget {
 }
 
 class SState extends State<S> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController gradeController = TextEditingController();
-  final TextEditingController rateController = TextEditingController();
-  final TextEditingController quantityController = TextEditingController();
-  final TextEditingController totalcostController = TextEditingController();
-  final TextEditingController discountedcostController =
-      TextEditingController();
-  final TextEditingController dateoforderController = TextEditingController();
-  final TextEditingController dateofdeliveryController =
-      TextEditingController();
-  final TextEditingController remarkController = TextEditingController();
-
-  // List to hold the submitted data
-  List<List<String>> submittedData = [];
-
-  void _submitData() {
-    // Gather data from the text controllers
-    List<String> rowData = [
-      nameController.text.isNotEmpty ? nameController.text : '-',
-      gradeController.text.isNotEmpty ? gradeController.text : '-',
-      rateController.text.isNotEmpty ? rateController.text : '-',
-      quantityController.text.isNotEmpty ? quantityController.text : '-',
-      totalcostController.text.isNotEmpty ? totalcostController.text : '-',
-      discountedcostController.text.isNotEmpty
-          ? discountedcostController.text
-          : '-',
-      dateoforderController.text.isNotEmpty ? dateoforderController.text : '-',
-      dateofdeliveryController.text.isNotEmpty
-          ? dateofdeliveryController.text
-          : '-',
-      remarkController.text.isNotEmpty ? remarkController.text : '-',
-    ];
-
-    // Add the gathered data to the list
-    setState(() {
-      submittedData.add(rowData);
-    });
-
-    // Optionally clear the text fields after submission
-    nameController.clear();
-    gradeController.clear();
-    rateController.clear();
-    quantityController.clear();
-    totalcostController.clear();
-    discountedcostController.clear();
-    dateoforderController.clear();
-    dateofdeliveryController.clear();
-    remarkController.clear();
-  }
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 10),
-        Row(
+    return Scaffold(
+      backgroundColor: const Color(0xFF181A20),
+      body: Container(
+        margin: const EdgeInsets.symmetric(vertical: 150, horizontal: 100),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CustomTextField(
-                controller: nameController, labelText: 'Name of Company'),
-            const SizedBox(width: 10),
-            CustomTextField(controller: gradeController, labelText: 'Grade'),
-            const SizedBox(width: 10),
-            CustomAMTTextField(controller: rateController, labelText: 'Rate'),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            CustomTextField(
-                controller: quantityController, labelText: 'Quantity'),
-            const SizedBox(width: 10),
-            CustomAMTTextField(
-                controller: totalcostController, labelText: 'Total Cost'),
-            const SizedBox(width: 10),
-            CustomAMTTextField(
-                controller: discountedcostController,
-                labelText: 'Discounted Cost'),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            DateField(
-                controller: dateoforderController, labelText: 'Date of Order'),
-            const SizedBox(width: 10),
-            DateField(
-                controller: dateofdeliveryController,
-                labelText: 'Date of Delivery'),
-            const SizedBox(width: 10),
-            CustomTextField(controller: remarkController, labelText: 'Remarks'),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                onPressed: _submitData,
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  backgroundColor: const Color(0xFFFCD535),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              decoration: const BoxDecoration(
+                border: Border(
+                  right: BorderSide(
+                    color: Color(0xFFFFFFFF),
+                    width: 1.0,
+                  ),
                 ),
-                child: const Text(
-                  'Submit',
-                  style: TextStyle(fontSize: 24, color: Color(0xFF181A20)),
+              ),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.asset(
+                    'assets/Images/Login_logo.png',
+                    width: 400,
+                    height: 400,
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Container(
+                  height: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Inventory',
+                        style: TextStyle(
+                          fontSize: 68,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFFFCD535),
+                        ),
+                      ),
+                      const Spacer(),
+                      SizedBox(
+                        width: double.infinity,
+                        child: TextFormField(
+                          controller: emailController,
+                          cursorColor: const Color(0xFFFFFFFF),
+                          style: const TextStyle(
+                            color: Color(0xFFFFFFFF),
+                          ),
+                          decoration: const InputDecoration(
+                            labelText: 'Email',
+                            labelStyle: TextStyle(
+                              color: Color(0xBEFFFFFF),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xBEFFFFFF)),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFFFCD535)),
+                            ),
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: double.infinity,
+                        child: TextFormField(
+                          controller: passwordController,
+                          cursorColor: const Color(0xFFFFFFFF),
+                          style: const TextStyle(
+                            color: Color(0xFFFFFFFF),
+                          ),
+                          decoration: const InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: TextStyle(
+                              color: Color(0xBEFFFFFF),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xBEFFFFFF)),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFFFCD535)),
+                            ),
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: onTapForgetPassword,
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              overlayColor: Colors.transparent,
+                            ),
+                            child: const Text(
+                              'Forget Password?',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFFFCD535),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            padding: WidgetStateProperty.all(
+                              const EdgeInsets.only(top: 12, bottom: 15),
+                            ),
+                            backgroundColor:
+                                WidgetStateProperty.resolveWith<Color?>(
+                              (states) {
+                                if (states.contains(WidgetState.hovered)) {
+                                  return const Color(0xFFFCD535);
+                                }
+                                return const Color(0xFFFFFFFF);
+                              },
+                            ),
+                            foregroundColor:
+                                WidgetStateProperty.resolveWith<Color?>(
+                              (states) {
+                                if (states.contains(WidgetState.hovered)) {
+                                  return const Color(0xFF181A20);
+                                }
+                                return const Color(0xFFFFFFFF);
+                              },
+                            ),
+                            side: WidgetStateProperty.resolveWith<BorderSide?>(
+                              (states) {
+                                return const BorderSide(
+                                  color: Color(0x7EFFFFFF),
+                                  width: 1.0,
+                                );
+                              },
+                            ),
+                            shape: WidgetStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                          ),
+                          child: const Text(
+                            'Log In',
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF181A20)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 10),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: DataTable(
-            columnSpacing: 30,
-            dataRowColor: WidgetStateProperty.all(const Color(0x13FFFFFF)),
-            headingRowColor: WidgetStateProperty.all(const Color(0xFF181A20)),
-            dividerThickness: 1.0,
-            headingTextStyle: const TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontSize: 16,
-            ),
-            dataTextStyle: const TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-            border: TableBorder(
-              top: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              bottom: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              left: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              right: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              horizontalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              verticalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              borderRadius: BorderRadius.circular(5),
-            ),
-            columns: const [
-              DataColumn(label: Text('Sr. No.')),
-              DataColumn(label: Text('Name of Company')),
-              DataColumn(label: Text('Grade')),
-              DataColumn(label: Text('Rate')),
-              DataColumn(label: Text('Quantity')),
-              DataColumn(label: Text('Total Cost')),
-              DataColumn(label: Text('Discounted Cost')),
-              DataColumn(label: Text('Date of Order')),
-              DataColumn(label: Text('Date of Delivery')),
-              DataColumn(label: Text('Remarks')),
-            ],
-            rows: List<DataRow>.generate(
-              submittedData.length,
-              (index) {
-                return DataRow(cells: [
-                  DataCell(Center(child: Text('${index + 1}'))),
-                  DataCell(Center(child: Text(submittedData[index][0]))),
-                  DataCell(Center(child: Text(submittedData[index][1]))),
-                  DataCell(Center(child: Text(submittedData[index][2]))),
-                  DataCell(Center(child: Text(submittedData[index][3]))),
-                  DataCell(Center(child: Text(submittedData[index][4]))),
-                  DataCell(Center(child: Text(submittedData[index][5]))),
-                  DataCell(Center(child: Text(submittedData[index][6]))),
-                  DataCell(Center(child: Text(submittedData[index][7]))),
-                  DataCell(Center(child: Text(submittedData[index][8]))),
-                ]);
-              },
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

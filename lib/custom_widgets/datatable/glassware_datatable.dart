@@ -137,8 +137,7 @@ class GlasswareDataTableState extends State<GlasswareDataTable> {
                 onPressed: submitData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(vertical: 12.0),
-                  ),
+                      const EdgeInsets.symmetric(vertical: 12.0)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -165,8 +164,7 @@ class GlasswareDataTableState extends State<GlasswareDataTable> {
                   ),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 child: const Text(
@@ -181,8 +179,7 @@ class GlasswareDataTableState extends State<GlasswareDataTable> {
                 onPressed: exportData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(vertical: 12.0),
-                  ),
+                      const EdgeInsets.symmetric(vertical: 12.0)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -215,8 +212,7 @@ class GlasswareDataTableState extends State<GlasswareDataTable> {
                   ),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 child: const Text(
@@ -244,15 +240,9 @@ class GlasswareDataTableState extends State<GlasswareDataTable> {
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
-            border: TableBorder(
-              top: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              bottom: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              left: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              right: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              horizontalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              verticalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+            border: TableBorder.all(
+              color: const Color(0xFFFFFFFF),
+              width: 1.0,
               borderRadius: BorderRadius.circular(10.0),
             ),
             columns: const [

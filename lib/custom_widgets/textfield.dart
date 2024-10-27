@@ -12,19 +12,19 @@ class CustomTextField extends StatefulWidget {
 }
 
 class CustomTextFieldState extends State<CustomTextField> {
-  final FocusNode _focusNode = FocusNode();
+  final FocusNode focusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    _focusNode.addListener(() {
+    focusNode.addListener(() {
       setState(() {});
     });
   }
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    focusNode.dispose();
     super.dispose();
   }
 
@@ -36,28 +36,22 @@ class CustomTextFieldState extends State<CustomTextField> {
         child: TextFormField(
           controller: widget.controller,
           cursorColor: const Color(0xFFFFFFFF),
-          focusNode: _focusNode,
+          focusNode: focusNode,
           decoration: InputDecoration(
             labelText: widget.labelText,
             labelStyle: TextStyle(
-              color: _focusNode.hasFocus
+              color: focusNode.hasFocus
                   ? const Color(0xFFFCD535)
                   : const Color(0x7EFFFFFF),
             ),
             filled: false,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0x7EFFFFFF)),
-            ),
+                borderSide: BorderSide(color: Color(0x7EFFFFFF))),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFFFCD535)),
-            ),
+                borderSide: BorderSide(color: Color(0xFFFCD535))),
           ),
-          style: const TextStyle(
-            color: Color(0xFFFFFFFF),
-          ),
+          style: const TextStyle(color: Color(0xFFFFFFFF)),
           obscureText: false,
         ),
       ),
@@ -77,19 +71,19 @@ class CustomAMTTextField extends StatefulWidget {
 }
 
 class CustomAMTTextFieldState extends State<CustomAMTTextField> {
-  final FocusNode _focusNode = FocusNode();
+  final FocusNode focusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    _focusNode.addListener(() {
+    focusNode.addListener(() {
       setState(() {});
     });
   }
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    focusNode.dispose();
     super.dispose();
   }
 
@@ -100,11 +94,11 @@ class CustomAMTTextFieldState extends State<CustomAMTTextField> {
         height: 45,
         child: TextFormField(
           controller: widget.controller,
-          focusNode: _focusNode,
+          focusNode: focusNode,
           decoration: InputDecoration(
             labelText: widget.labelText,
             labelStyle: TextStyle(
-              color: _focusNode.hasFocus
+              color: focusNode.hasFocus
                   ? const Color(0xFFFCD535)
                   : const Color(0x7EFFFFFF),
             ),
@@ -115,15 +109,11 @@ class CustomAMTTextFieldState extends State<CustomAMTTextField> {
             ),
             border: const OutlineInputBorder(),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0x7EFFFFFF)),
-            ),
+                borderSide: BorderSide(color: Color(0x7EFFFFFF))),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFFFCD535)),
-            ),
+                borderSide: BorderSide(color: Color(0xFFFCD535))),
           ),
-          style: const TextStyle(
-            color: Color(0xFFFFFFFF),
-          ),
+          style: const TextStyle(color: Color(0xFFFFFFFF)),
           cursorColor: const Color(0xFFFFFFFF),
         ),
       ),

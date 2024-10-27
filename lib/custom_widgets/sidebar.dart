@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:purchase_inventory/utlis/routes.dart';
 
 class Sidebar extends StatefulWidget {
-  final double screenWidth;
-  final double screenHeight;
-
-  const Sidebar(
-      {super.key, required this.screenWidth, required this.screenHeight});
+  const Sidebar({super.key});
 
   @override
   State<Sidebar> createState() => SidebarState();
@@ -14,32 +10,31 @@ class Sidebar extends StatefulWidget {
 
 class SidebarState extends State<Sidebar> {
   final List<Map<String, dynamic>> dropdownItems = [
-    {'text': 'Botany', 'route': () => onTapBotany()},
-    {'text': 'Zoology', 'route': () => onTapZoology()},
-    {'text': 'Physics', 'route': () => onTapPhysics()},
-    {'text': 'Chemistry', 'route': () => onTapChemistry()},
-    {'text': 'Biotechnology', 'route': () => onTapBiotech()},
-    {'text': 'Mathematics', 'route': () => onTapMaths()},
-    {'text': 'Information Technology', 'route': () => onTapIT()},
-    {'text': 'Computer Science', 'route': () => onTapCS()},
+    {'text': 'Botany', 'route': onTapBotany},
+    {'text': 'Zoology', 'route': onTapZoology},
+    {'text': 'Physics', 'route': onTapPhysics},
+    {'text': 'Chemistry', 'route': onTapChemistry},
+    {'text': 'Biotechnology', 'route': onTapBiotech},
+    {'text': 'Mathematics', 'route': onTapMaths},
+    {'text': 'Information Technology', 'route': onTapIT},
+    {'text': 'Computer Science', 'route': onTapCS},
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.screenWidth * 0.225,
-      height: widget.screenHeight,
+      width: 350,
       color: const Color(0x0BFFFFFF),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 5),
-                child: GestureDetector(
-                  onTap: onTapDashboard,
-                  child: const Text(
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: TextButton(
+                  onPressed: onTapDashboard,
+                  child: Text(
                     'Inventory',
                     style: TextStyle(
                       fontSize: 48,
@@ -50,101 +45,87 @@ class SidebarState extends State<Sidebar> {
                   ),
                 ),
               ),
-              Padding(
+              Container(
                 padding: const EdgeInsets.all(10),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        'assets/Icons/Department.png',
-                        width: 25,
-                        height: 25,
-                        fit: BoxFit.contain,
+                alignment: Alignment.topLeft,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/Icons/Department.png',
+                      width: 25,
+                      height: 25,
+                      fit: BoxFit.contain,
+                    ),
+                    const SizedBox(width: 10),
+                    PopupMenuButton(
+                      offset: const Offset(0, 50),
+                      padding: const EdgeInsets.all(0),
+                      elevation: 0,
+                      color: Colors.transparent,
+                      style: const ButtonStyle(
+                          overlayColor:
+                              WidgetStatePropertyAll(Colors.transparent)),
+                      icon: const Text(
+                        "Department",
+                        style: TextStyle(
+                          fontSize: 28,
+                          color: Color(0xFFFFFFFF),
+                        ),
                       ),
-                      const SizedBox(width: 10),
-                      PopupMenuButton<int>(
-                        offset: const Offset(0, 50),
-                        elevation: 0,
-                        color: Colors.transparent,
-                        onSelected: (index) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  dropdownItems[index]['route'](),
+                      itemBuilder: (context) => List.generate(
+                        dropdownItems.length,
+                        (index) => PopupMenuItem(
+                          height: 30,
+                          value: index,
+                          child: TextButton(
+                            style: const ButtonStyle(
+                              overlayColor:
+                                  WidgetStatePropertyAll(Colors.transparent),
                             ),
-                          );
-                        },
-                        itemBuilder: (context) => List.generate(
-                          dropdownItems.length,
-                          (index) => PopupMenuItem(
-                            height: 30,
-                            value: index,
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        dropdownItems[index]['route'](),
-                                  ),
-                                );
-                              },
-                              overlayColor: const WidgetStatePropertyAll(
-                                  Colors.transparent),
-                              child: Text(
-                                dropdownItems[index]['text'],
-                                style: const TextStyle(
-                                  color: Color(0xFFFFFFFF),
-                                  fontSize: 18,
-                                ),
+                            onPressed: () {
+                              dropdownItems[index]['route']();
+                            },
+                            child: Text(
+                              dropdownItems[index]['text'],
+                              style: const TextStyle(
+                                color: Color(0xFFD9D9D9),
+                                fontSize: 18,
                               ),
                             ),
                           ),
                         ),
-                        child: const Text(
-                          "Department",
-                          style: TextStyle(
-                            fontSize: 28,
-                            color: Color(0xFFFFFFFF),
-                          ),
-                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-          Padding(
+          Container(
             padding: const EdgeInsets.all(10),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/Icons/SignOut.png',
-                    width: 25,
-                    height: 25,
-                    fit: BoxFit.contain,
-                  ),
-                  const TextButton(
-                    onPressed: onTapLogin,
-                    style: ButtonStyle(
-                        splashFactory: NoSplash.splashFactory,
-                        overlayColor:
-                            WidgetStatePropertyAll(Colors.transparent)),
-                    child: Text(
-                      "Sign Out",
-                      style: TextStyle(
-                        fontSize: 28,
-                        color: Color(0xFFFFFFFF),
-                      ),
+            alignment: Alignment.topLeft,
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/Icons/SignOut.png',
+                  width: 25,
+                  height: 25,
+                  fit: BoxFit.contain,
+                ),
+                const TextButton(
+                  onPressed: onTapLogin,
+                  style: ButtonStyle(
+                      splashFactory: NoSplash.splashFactory,
+                      overlayColor: WidgetStatePropertyAll(Colors.transparent)),
+                  child: Text(
+                    "Sign Out",
+                    style: TextStyle(
+                      fontSize: 28,
+                      color: Color(0xFFFFFFFF),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
