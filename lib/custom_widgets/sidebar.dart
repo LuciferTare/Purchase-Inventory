@@ -58,7 +58,7 @@ class SidebarState extends State<Sidebar> {
                     ),
                     const SizedBox(width: 10),
                     PopupMenuButton(
-                      offset: const Offset(-25, 40),
+                      offset: const Offset(-22.5, 40),
                       padding: const EdgeInsets.all(0),
                       elevation: 0,
                       color: Colors.transparent,
@@ -90,8 +90,7 @@ class SidebarState extends State<Sidebar> {
                               dropdownItems[index]['text'],
                               style: const TextStyle(
                                 color: Color(0xFFD9D9D9),
-                                fontFamily: 'Aquatico',
-                                fontSize: 13,
+                                fontSize: 18,
                               ),
                             ),
                           ),
