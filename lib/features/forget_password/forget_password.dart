@@ -37,18 +37,15 @@ class ForgetPasswordState extends State<ForgetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: const Color(0xFF181A20),
-      body: Center(
+      body: Container(
+        margin: const EdgeInsets.symmetric(vertical: 125, horizontal: 100),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: screenWidth * 1.5 / 4,
-              height: screenHeight * 0.85,
+              padding: const EdgeInsets.symmetric(horizontal: 75),
               decoration: const BoxDecoration(
                 border: Border(
                   right: BorderSide(
@@ -59,24 +56,23 @@ class ForgetPasswordState extends State<ForgetPassword> {
               ),
               child: Center(
                 child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Image.asset('assets/Images/Login_logo.png',
-                        width: 400, height: 400)),
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.asset(
+                    'assets/Images/Login_logo.png',
+                    width: 400,
+                    height: 400,
+                  ),
+                ),
               ),
             ),
-            SizedBox(
-              width: screenWidth * 2.5 / 4,
-              height: screenHeight,
+            Expanded(
               child: Center(
                 child: Container(
-                  width: screenWidth * 1.75 / 4,
-                  padding: const EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
+                  height: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 75, vertical: 25),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
                         'Forget your password',
@@ -97,28 +93,31 @@ class ForgetPasswordState extends State<ForgetPassword> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 50),
-                      TextFormField(
-                        controller: emailController,
-                        cursorColor: const Color(0xFFFFFFFF),
-                        style: const TextStyle(
-                          color: Color(0xFFFFFFFF),
-                        ),
-                        decoration: const InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: TextStyle(
-                            color: Color(0xBEFFFFFF),
+                      const Spacer(),
+                      SizedBox(
+                        width: double.infinity,
+                        child: TextFormField(
+                          controller: emailController,
+                          cursorColor: const Color(0xFFFFFFFF),
+                          style: const TextStyle(
+                            color: Color(0xFFFFFFFF),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xBEFFFFFF)),
+                          decoration: const InputDecoration(
+                            labelText: 'Email',
+                            labelStyle: TextStyle(
+                              color: Color(0xBEFFFFFF),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xBEFFFFFF)),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFFFCD535)),
+                            ),
+                            border: OutlineInputBorder(),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFCD535)),
-                          ),
-                          border: OutlineInputBorder(),
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const Spacer(),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(

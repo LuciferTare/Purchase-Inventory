@@ -42,12 +42,12 @@ class LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: const Color(0xFF181A20),
       body: Container(
-        margin: const EdgeInsets.symmetric(vertical: 150, horizontal: 100),
+        margin: const EdgeInsets.symmetric(vertical: 125, horizontal: 100),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 75),
               decoration: const BoxDecoration(
                 border: Border(
                   right: BorderSide(
@@ -72,7 +72,7 @@ class LoginState extends State<Login> {
                 child: Container(
                   height: double.infinity,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
+                      const EdgeInsets.symmetric(horizontal: 75, vertical: 25),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
