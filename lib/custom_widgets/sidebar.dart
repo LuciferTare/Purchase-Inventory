@@ -52,8 +52,8 @@ class SidebarState extends State<Sidebar> {
                   children: [
                     Image.asset(
                       'assets/Icons/Department.png',
-                      width: 25,
-                      height: 25,
+                      width: 40,
+                      height: 40,
                       fit: BoxFit.contain,
                     ),
                     const SizedBox(width: 10),
@@ -108,8 +108,8 @@ class SidebarState extends State<Sidebar> {
               children: [
                 Image.asset(
                   'assets/Icons/SignOut.png',
-                  width: 25,
-                  height: 25,
+                  width: 40,
+                  height: 40,
                   fit: BoxFit.contain,
                 ),
                 const TextButton(

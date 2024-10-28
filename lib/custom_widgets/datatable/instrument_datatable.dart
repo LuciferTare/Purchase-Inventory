@@ -242,9 +242,9 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
               fontWeight: FontWeight.w500,
             ),
             border: TableBorder.all(
-              color: const Color(0xFFFFFFFF),
+              color: const Color(0x7EFFFFFF),
               width: 1.0,
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(5),
             ),
             columns: const [
               DataColumn(label: Text('Sr. No.')),

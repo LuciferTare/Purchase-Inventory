@@ -239,15 +239,9 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
-            border: TableBorder(
-              top: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              bottom: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              left: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              right: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              horizontalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
-              verticalInside:
-                  const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
+            border: TableBorder.all(
+              color: const Color(0x7EFFFFFF),
+              width: 1.0,
               borderRadius: BorderRadius.circular(5),
             ),
             columns: const [
