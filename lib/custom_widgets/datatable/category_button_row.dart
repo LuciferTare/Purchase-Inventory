@@ -51,6 +51,7 @@ class CategoryButtonRowState extends State<CategoryButtonRow> {
         text,
         style: TextStyle(
           fontSize: 24,
+          fontFamily: 'Aquatico',
           color: isSelected ? const Color(0xFF181A20) : const Color(0xFFFFFFFF),
         ),
       ),

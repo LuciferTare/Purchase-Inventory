@@ -84,6 +84,18 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
     );
   }
 
+  void clearData() {
+    nameController.clear();
+    warrantyController.clear();
+    rateController.clear();
+    quantityController.clear();
+    totalcostController.clear();
+    discountedcostController.clear();
+    dateoforderController.clear();
+    dateofdeliveryController.clear();
+    remarkController.clear();
+  }
+
   void exportData() {}
 
   @override
@@ -138,7 +150,7 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                 onPressed: submitData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
+                      const EdgeInsets.symmetric(vertical: 12)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -157,10 +169,12 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                   ),
                   side: WidgetStateProperty.resolveWith<BorderSide?>(
                     (states) {
+                      if (states.contains(WidgetState.hovered)) {
+                        return const BorderSide(
+                            color: Color(0xFFFCD535), width: 1);
+                      }
                       return const BorderSide(
-                        color: Color(0x7EFFFFFF),
-                        width: 1.0,
-                      );
+                          color: Color(0x7EFFFFFF), width: 1.0);
                     },
                   ),
                   shape: WidgetStateProperty.all(
@@ -177,10 +191,51 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
             const SizedBox(width: 10),
             Expanded(
               child: ElevatedButton(
+                onPressed: clearData,
+                style: ButtonStyle(
+                  padding: WidgetStateProperty.all(
+                      const EdgeInsets.symmetric(vertical: 12)),
+                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                    (states) {
+                      if (states.contains(WidgetState.hovered)) {
+                        return const Color(0xFFDC3545);
+                      }
+                      return const Color(0x13FFFFFF);
+                    },
+                  ),
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+                    (states) {
+                      return const Color(0xFFFFFFFF);
+                    },
+                  ),
+                  side: WidgetStateProperty.resolveWith<BorderSide?>(
+                    (states) {
+                      if (states.contains(WidgetState.hovered)) {
+                        return const BorderSide(
+                            color: Color(0xFFDC3545), width: 1);
+                      }
+                      return const BorderSide(
+                          color: Color(0x7EFFFFFF), width: 1);
+                    },
+                  ),
+                  shape: WidgetStateProperty.all(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
+                child: const Text(
+                  'Clear',
+                  style: TextStyle(fontSize: 24),
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: ElevatedButton(
                 onPressed: exportData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
+                      const EdgeInsets.symmetric(vertical: 12)),
                   backgroundColor: WidgetStateProperty.resolveWith<Color?>(
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
@@ -201,14 +256,10 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
                     (states) {
                       if (states.contains(WidgetState.hovered)) {
                         return const BorderSide(
-                          color: Color(0xFF107C41),
-                          width: 1.0,
-                        );
+                            color: Color(0xFF107C41), width: 1);
                       }
                       return const BorderSide(
-                        color: Color(0x7EFFFFFF),
-                        width: 1.0,
-                      );
+                          color: Color(0x7EFFFFFF), width: 1);
                     },
                   ),
                   shape: WidgetStateProperty.all(
