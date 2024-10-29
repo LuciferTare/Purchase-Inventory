@@ -116,335 +116,340 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            CustomTextField(
-                controller: nameController, labelText: 'Name of Aids'),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Container(
-                height: 45,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(25)),
-                child: DropdownButtonFormField<String>(
-                  value: selectedValue,
-                  decoration: InputDecoration(
-                    labelText: 'Type',
-                    labelStyle: const TextStyle(
-                      color: Color(0x7EFFFFFF),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              CustomTextField(
+                  controller: nameController, labelText: 'Name of Aids'),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Container(
+                  height: 45,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(25)),
+                  child: DropdownButtonFormField<String>(
+                    value: selectedValue,
+                    decoration: InputDecoration(
+                      labelText: 'Type',
+                      labelStyle: const TextStyle(
+                        color: Color(0x7EFFFFFF),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      filled: false,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                    ),
+                    dropdownColor: const Color(0xFF181A20),
+                    iconEnabledColor: const Color(0xFFFFFFFF),
+                    style: const TextStyle(
+                      color: Color(0xFFFFFFFF),
                       fontWeight: FontWeight.bold,
                     ),
-                    filled: false,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5)),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedValue = newValue!;
+                        typeController.text = newValue;
+                      });
+                    },
+                    items: const [
+                      DropdownMenuItem(
+                        value: '1',
+                        child: Center(child: Text('Audio Aids')),
+                      ),
+                      DropdownMenuItem(
+                        value: '2',
+                        child: Center(child: Text('Visual Aids')),
+                      ),
+                      DropdownMenuItem(
+                        value: '3',
+                        child: Center(child: Text('AV Aids')),
+                      ),
+                      DropdownMenuItem(
+                        value: '4',
+                        child: Center(child: Text('Interactive Panels')),
+                      ),
+                      DropdownMenuItem(
+                        value: '5',
+                        child: Center(child: Text('Projectors')),
+                      ),
+                      DropdownMenuItem(
+                        value: '6',
+                        child: Center(child: Text('Computers')),
+                      ),
+                    ],
                   ),
-                  dropdownColor: const Color(0xFF181A20),
-                  iconEnabledColor: const Color(0xFFFFFFFF),
-                  style: const TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontWeight: FontWeight.bold,
-                  ),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      selectedValue = newValue!;
-                      typeController.text = newValue;
-                    });
-                  },
-                  items: const [
-                    DropdownMenuItem(
-                      value: '1',
-                      child: Center(child: Text('Audio Aids')),
-                    ),
-                    DropdownMenuItem(
-                      value: '2',
-                      child: Center(child: Text('Visual Aids')),
-                    ),
-                    DropdownMenuItem(
-                      value: '3',
-                      child: Center(child: Text('AV Aids')),
-                    ),
-                    DropdownMenuItem(
-                      value: '4',
-                      child: Center(child: Text('Interactive Panels')),
-                    ),
-                    DropdownMenuItem(
-                      value: '5',
-                      child: Center(child: Text('Projectors')),
-                    ),
-                    DropdownMenuItem(
-                      value: '6',
-                      child: Center(child: Text('Computers')),
-                    ),
-                  ],
                 ),
               ),
-            ),
-            const SizedBox(width: 10),
-            CustomAMTTextField(controller: rateController, labelText: 'Rate'),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            CustomTextField(
-                controller: quantityController, labelText: 'Quantity'),
-            const SizedBox(width: 10),
-            CustomAMTTextField(
-                controller: totalcostController, labelText: 'Total Cost'),
-            const SizedBox(width: 10),
-            CustomAMTTextField(
-                controller: discountedcostController,
-                labelText: 'Discounted Cost'),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            DateField(
-                controller: dateoforderController, labelText: 'Date of Order'),
-            const SizedBox(width: 10),
-            DateField(
-                controller: dateofdeliveryController,
-                labelText: 'Date of Delivery'),
-            const SizedBox(width: 10),
-            CustomTextField(controller: remarkController, labelText: 'Remarks'),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                onPressed: submitData,
-                style: ButtonStyle(
-                  padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFFFCD535);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
-                  ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
+              const SizedBox(width: 10),
+              CustomAMTTextField(controller: rateController, labelText: 'Rate'),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              CustomTextField(
+                  controller: quantityController, labelText: 'Quantity'),
+              const SizedBox(width: 10),
+              CustomAMTTextField(
+                  controller: totalcostController, labelText: 'Total Cost'),
+              const SizedBox(width: 10),
+              CustomAMTTextField(
+                  controller: discountedcostController,
+                  labelText: 'Discounted Cost'),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              DateField(
+                  controller: dateoforderController,
+                  labelText: 'Date of Order'),
+              const SizedBox(width: 10),
+              DateField(
+                  controller: dateofdeliveryController,
+                  labelText: 'Date of Delivery'),
+              const SizedBox(width: 10),
+              CustomTextField(
+                  controller: remarkController, labelText: 'Remarks'),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: submitData,
+                  style: ButtonStyle(
+                    padding: WidgetStateProperty.all(
+                        const EdgeInsets.symmetric(vertical: 12)),
+                    backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const Color(0xFFFCD535);
+                        }
+                        return const Color(0x13FFFFFF);
+                      },
+                    ),
+                    foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const Color(0xFF181A20);
+                        }
+                        return const Color(0xFFFFFFFF);
+                      },
+                    ),
+                    side: WidgetStateProperty.resolveWith<BorderSide?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const BorderSide(
+                              color: Color(0xFFFCD535), width: 1);
+                        }
                         return const BorderSide(
-                            color: Color(0xFFFCD535), width: 1);
-                      }
-                      return const BorderSide(
-                          color: Color(0x7EFFFFFF), width: 1.0);
-                    },
+                            color: Color(0x7EFFFFFF), width: 1.0);
+                      },
+                    ),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
                   ),
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                  child: const Text(
+                    'Submit',
+                    style: TextStyle(fontSize: 24),
                   ),
-                ),
-                child: const Text(
-                  'Submit',
-                  style: TextStyle(fontSize: 24),
                 ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: clearData,
-                style: ButtonStyle(
-                  padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFFDC3545);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
-                  ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
+              const SizedBox(width: 10),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: clearData,
+                  style: ButtonStyle(
+                    padding: WidgetStateProperty.all(
+                        const EdgeInsets.symmetric(vertical: 12)),
+                    backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const Color(0xFFDC3545);
+                        }
+                        return const Color(0x13FFFFFF);
+                      },
+                    ),
+                    foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (states) {
+                        return const Color(0xFFFFFFFF);
+                      },
+                    ),
+                    side: WidgetStateProperty.resolveWith<BorderSide?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const BorderSide(
+                              color: Color(0xFFDC3545), width: 1);
+                        }
                         return const BorderSide(
-                            color: Color(0xFFDC3545), width: 1);
-                      }
-                      return const BorderSide(
-                          color: Color(0x7EFFFFFF), width: 1);
-                    },
+                            color: Color(0x7EFFFFFF), width: 1);
+                      },
+                    ),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
                   ),
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                  child: const Text(
+                    'Clear',
+                    style: TextStyle(fontSize: 24),
                   ),
-                ),
-                child: const Text(
-                  'Clear',
-                  style: TextStyle(fontSize: 24),
                 ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: exportData,
-                style: ButtonStyle(
-                  padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF107C41);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
-                  ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
+              const SizedBox(width: 10),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: exportData,
+                  style: ButtonStyle(
+                    padding: WidgetStateProperty.all(
+                        const EdgeInsets.symmetric(vertical: 12)),
+                    backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const Color(0xFF107C41);
+                        }
+                        return const Color(0x13FFFFFF);
+                      },
+                    ),
+                    foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const Color(0xFF181A20);
+                        }
+                        return const Color(0xFFFFFFFF);
+                      },
+                    ),
+                    side: WidgetStateProperty.resolveWith<BorderSide?>(
+                      (states) {
+                        if (states.contains(WidgetState.hovered)) {
+                          return const BorderSide(
+                              color: Color(0xFF107C41), width: 1);
+                        }
                         return const BorderSide(
-                            color: Color(0xFF107C41), width: 1);
-                      }
-                      return const BorderSide(
-                          color: Color(0x7EFFFFFF), width: 1);
-                    },
+                            color: Color(0x7EFFFFFF), width: 1);
+                      },
+                    ),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                    ),
                   ),
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                  child: const Text(
+                    'Export to Excel',
+                    style: TextStyle(fontSize: 24),
                   ),
-                ),
-                child: const Text(
-                  'Export to Excel',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 10),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: DataTable(
-            columnSpacing: 30,
-            dataRowColor: WidgetStateProperty.all(const Color(0x13FFFFFF)),
-            headingRowColor: WidgetStateProperty.all(const Color(0xFF181A20)),
-            dividerThickness: 1.0,
-            headingTextStyle: const TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontSize: 16,
-            ),
-            dataTextStyle: const TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-            border: TableBorder.all(
-              color: const Color(0x7EFFFFFF),
-              width: 1.0,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            columns: const [
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Sr. No.')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Name of Aids')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Type')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Rate')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Quantity')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Total Cost')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Discounted Cost')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Date of Order')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Date of Delivery')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Remarks')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Ordered by')),
                 ),
               ),
             ],
-            rows: submittedData.map((data) {
-              return DataRow(cells: [
-                DataCell(Center(child: Text(data[0]))),
-                DataCell(Center(child: Text(data[1]))),
-                DataCell(Center(child: Text(data[2]))),
-                DataCell(Center(child: Text('₹ ${data[3]}'))),
-                DataCell(Center(child: Text(data[4]))),
-                DataCell(Center(child: Text('₹ ${data[5]}'))),
-                DataCell(Center(child: Text('₹ ${data[6]}'))),
-                DataCell(Center(child: Text(data[7]))),
-                DataCell(Center(child: Text(data[8]))),
-                DataCell(Center(child: Text(data[9]))),
-                DataCell(Center(child: Text(data[10]))),
-              ]);
-            }).toList(),
           ),
-        ),
-      ],
+          const SizedBox(height: 10),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(
+              columnSpacing: 30,
+              dataRowColor: WidgetStateProperty.all(const Color(0x13FFFFFF)),
+              headingRowColor: WidgetStateProperty.all(const Color(0xFF181A20)),
+              dividerThickness: 1.0,
+              headingTextStyle: const TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontSize: 16,
+              ),
+              dataTextStyle: const TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              border: TableBorder.all(
+                color: const Color(0x7EFFFFFF),
+                width: 1.0,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              columns: const [
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Sr. No.')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Name of Aids')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Type')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Rate')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Quantity')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Total Cost')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Discounted Cost')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Date of Order')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Date of Delivery')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Remarks')),
+                  ),
+                ),
+                DataColumn(
+                  label: Expanded(
+                    child: Center(child: Text('Ordered by')),
+                  ),
+                ),
+              ],
+              rows: submittedData.map((data) {
+                return DataRow(cells: [
+                  DataCell(Center(child: Text(data[0]))),
+                  DataCell(Center(child: Text(data[1]))),
+                  DataCell(Center(child: Text(data[2]))),
+                  DataCell(Center(child: Text('₹ ${data[3]}'))),
+                  DataCell(Center(child: Text(data[4]))),
+                  DataCell(Center(child: Text('₹ ${data[5]}'))),
+                  DataCell(Center(child: Text('₹ ${data[6]}'))),
+                  DataCell(Center(child: Text(data[7]))),
+                  DataCell(Center(child: Text(data[8]))),
+                  DataCell(Center(child: Text(data[9]))),
+                  DataCell(Center(child: Text(data[10]))),
+                ]);
+              }).toList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

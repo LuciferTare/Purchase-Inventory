@@ -125,6 +125,7 @@ class DashboardState extends State<Dashboard> {
                       const SizedBox(width: 20),
                       const Tooltip(
                         message: 'lucifersushant@gmail.com',
+                        margin: EdgeInsets.all(5),
                         child: CircleAvatar(
                           backgroundColor: Color(0xFF181A20),
                           radius: 25,
