@@ -10,66 +10,89 @@ class Dashboard extends StatefulWidget {
 }
 
 class DashboardState extends State<Dashboard> {
+  final TextEditingController searchController = TextEditingController();
+  List<Map<String, dynamic>> filteredContent = [];
+  final List<Map<String, dynamic>> boxContent = [
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Botany',
+      'description':
+          'Delve into the world of plant science with our collection of botany resources.',
+      'route': onTapBotany,
+    },
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Zoology',
+      'description':
+          'Discover animal science with our selection of materials, covering wildlife conservation to animal behavior.',
+      'route': onTapZoology,
+    },
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Physics',
+      'description':
+          'Unlock the universe\'s secrets with our physics resources, from quantum mechanics to relativity.',
+      'route': onTapPhysics,
+    },
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Chemistry',
+      'description':
+          'Discover matter\'s building blocks with our chemistry resources, from organic chemistry to materials science.',
+      'route': onTapChemistry,
+    },
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Biotech',
+      'description':
+          'Explore biology and technology\'s intersection with our resources on genetic engineering, synthetic biology, and more.',
+      'route': onTapBiotech,
+    },
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Mathematics',
+      'description':
+          'Unlock problem-solving skills with our math resources, covering algebra, geometry, calculus, and more.',
+      'route': onTapMaths,
+    },
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Information Technology',
+      'description':
+          'Explore the world of information technology with our resources on networking, cybersecurity, data analysis, and IT management.',
+      'route': onTapIT,
+    },
+    {
+      'image': 'assets/Images/Botany.png',
+      'heading': 'Computer Science',
+      'description':
+          'Dive into computer science with our resources on programming, algorithms, artificial intelligence, and software engineering.',
+      'route': onTapCS,
+    },
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredContent = boxContent;
+    searchController.addListener(filterContent);
+  }
+
+  void filterContent() {
+    final query = searchController.text.toLowerCase();
+    setState(() {
+      if (query.isEmpty) {
+        filteredContent = boxContent;
+      } else {
+        filteredContent = boxContent
+            .where((item) => item['heading']!.toLowerCase().contains(query))
+            .toList();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> boxContent = [
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Botany',
-        'description':
-            'Delve into the world of plant science with our collection of botany resources.',
-        'route': onTapBotany,
-      },
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Zoology',
-        'description':
-            'Discover animal science with our selection of materials, covering wildlife conservation to animal behavior.',
-        'route': onTapZoology,
-      },
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Physics',
-        'description':
-            'Unlock the universe\'s secrets with our physics resources, from quantum mechanics to relativity.',
-        'route': onTapPhysics,
-      },
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Chemistry',
-        'description':
-            'Discover matter\'s building blocks with our chemistry resources, from organic chemistry to materials science.',
-        'route': onTapChemistry,
-      },
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Biotech',
-        'description':
-            'Explore biology and technology\'s intersection with our resources on genetic engineering, synthetic biology, and more.',
-        'route': onTapBiotech,
-      },
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Mathematics',
-        'description':
-            'Unlock problem-solving skills with our math resources, covering algebra, geometry, calculus, and more.',
-        'route': onTapMaths,
-      },
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Information Technology',
-        'description':
-            'Explore the world of information technology with our resources on networking, cybersecurity, data analysis, and IT management.',
-        'route': onTapIT,
-      },
-      {
-        'image': 'assets/Images/Botany.png',
-        'heading': 'Computer Science',
-        'description':
-            'Dive into computer science with our resources on programming, algorithms, artificial intelligence, and software engineering.',
-        'route': onTapCS,
-      },
-    ];
     return Scaffold(
       backgroundColor: const Color(0xFF181A20),
       body: Row(
@@ -86,6 +109,7 @@ class DashboardState extends State<Dashboard> {
                     children: [
                       Expanded(
                         child: TextField(
+                          controller: searchController,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: const Color(0xFFFFFFFF),
@@ -113,7 +137,7 @@ class DashboardState extends State<Dashboard> {
                   const SizedBox(height: 20),
                   Expanded(
                     child: GridView.builder(
-                      itemCount: boxContent.length,
+                      itemCount: filteredContent.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
@@ -122,7 +146,7 @@ class DashboardState extends State<Dashboard> {
                         childAspectRatio: 1.525,
                       ),
                       itemBuilder: (context, index) {
-                        final content = boxContent[index];
+                        final content = filteredContent[index];
                         return GestureDetector(
                           onTap: content['route'],
                           child: Container(
