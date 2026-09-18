@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:purchase_inventory/custom_widgets/date_textfield.dart';
-import 'package:purchase_inventory/custom_widgets/textfield.dart';
+import 'package:purchase_inventory/features/widgets/date_textfield.dart';
+import 'package:purchase_inventory/features/widgets/textfield.dart';
 
 class TeachingAidsDataTable extends StatefulWidget {
   const TeachingAidsDataTable({super.key});
@@ -110,13 +110,16 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
         Row(
           children: [
             CustomTextField(
-                controller: nameController, labelText: 'Name of Aids'),
+              controller: nameController,
+              labelText: 'Name of Aids',
+            ),
             const SizedBox(width: 10),
             Expanded(
               child: Container(
                 height: 45,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(25)),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 child: DropdownButtonFormField<String>(
                   value: selectedValue,
                   decoration: InputDecoration(
@@ -127,9 +130,11 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                     ),
                     filled: false,
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                      borderSide: BorderSide(color: Color(0xFFFFFFFF)),
+                    ),
                   ),
                   dropdownColor: const Color(0xFF181A20),
                   iconEnabledColor: const Color(0xFFFFFFFF),
@@ -180,25 +185,33 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
         Row(
           children: [
             CustomTextField(
-                controller: quantityController, labelText: 'Quantity'),
+              controller: quantityController,
+              labelText: 'Quantity',
+            ),
             const SizedBox(width: 10),
             CustomAMTTextField(
-                controller: totalcostController, labelText: 'Total Cost'),
+              controller: totalcostController,
+              labelText: 'Total Cost',
+            ),
             const SizedBox(width: 10),
             CustomAMTTextField(
-                controller: discountedcostController,
-                labelText: 'Discounted Cost'),
+              controller: discountedcostController,
+              labelText: 'Discounted Cost',
+            ),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
             DateField(
-                controller: dateoforderController, labelText: 'Date of Order'),
+              controller: dateoforderController,
+              labelText: 'Date of Order',
+            ),
             const SizedBox(width: 10),
             DateField(
-                controller: dateofdeliveryController,
-                labelText: 'Date of Delivery'),
+              controller: dateofdeliveryController,
+              labelText: 'Date of Delivery',
+            ),
             const SizedBox(width: 10),
             CustomTextField(controller: remarkController, labelText: 'Remarks'),
           ],
@@ -211,40 +224,37 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                 onPressed: submitData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFFFCD535);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
+                    const EdgeInsets.symmetric(vertical: 12.0),
                   ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      return const BorderSide(
-                        color: Color(0x7EFFFFFF),
-                        width: 1.0,
-                      );
-                    },
-                  ),
+                  backgroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFFFCD535);
+                    }
+                    return const Color(0x13FFFFFF);
+                  }),
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF181A20);
+                    }
+                    return const Color(0xFFFFFFFF);
+                  }),
+                  side: WidgetStateProperty.resolveWith<BorderSide?>((states) {
+                    return const BorderSide(
+                      color: Color(0x7EFFFFFF),
+                      width: 1.0,
+                    );
+                  }),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-                child: const Text(
-                  'Submit',
-                  style: TextStyle(fontSize: 24),
-                ),
+                child: const Text('Submit', style: TextStyle(fontSize: 24)),
               ),
             ),
             const SizedBox(width: 10),
@@ -253,40 +263,40 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
                 onPressed: exportData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF107C41);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
+                    const EdgeInsets.symmetric(vertical: 12.0),
                   ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const BorderSide(
-                          color: Color(0xFF107C41),
-                          width: 1.0,
-                        );
-                      }
+                  backgroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF107C41);
+                    }
+                    return const Color(0x13FFFFFF);
+                  }),
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF181A20);
+                    }
+                    return const Color(0xFFFFFFFF);
+                  }),
+                  side: WidgetStateProperty.resolveWith<BorderSide?>((states) {
+                    if (states.contains(WidgetState.hovered)) {
                       return const BorderSide(
-                        color: Color(0x7EFFFFFF),
+                        color: Color(0xFF107C41),
                         width: 1.0,
                       );
-                    },
-                  ),
+                    }
+                    return const BorderSide(
+                      color: Color(0x7EFFFFFF),
+                      width: 1.0,
+                    );
+                  }),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
                 child: const Text(
@@ -321,76 +331,53 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
             ),
             columns: const [
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Sr. No.')),
-                ),
+                label: Expanded(child: Center(child: Text('Sr. No.'))),
               ),
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Name of Aids')),
-                ),
+                label: Expanded(child: Center(child: Text('Name of Aids'))),
+              ),
+              DataColumn(label: Expanded(child: Center(child: Text('Type')))),
+              DataColumn(label: Expanded(child: Center(child: Text('Rate')))),
+              DataColumn(
+                label: Expanded(child: Center(child: Text('Quantity'))),
               ),
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Type')),
-                ),
+                label: Expanded(child: Center(child: Text('Total Cost'))),
               ),
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Rate')),
-                ),
+                label: Expanded(child: Center(child: Text('Discounted Cost'))),
               ),
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Quantity')),
-                ),
+                label: Expanded(child: Center(child: Text('Date of Order'))),
               ),
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Total Cost')),
-                ),
+                label: Expanded(child: Center(child: Text('Date of Delivery'))),
               ),
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Discounted Cost')),
-                ),
+                label: Expanded(child: Center(child: Text('Remarks'))),
               ),
               DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Date of Order')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Date of Delivery')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Remarks')),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Center(child: Text('Ordered by')),
-                ),
+                label: Expanded(child: Center(child: Text('Ordered by'))),
               ),
             ],
-            rows: submittedData.map((data) {
-              return DataRow(cells: [
-                DataCell(Center(child: Text(data[0]))),
-                DataCell(Center(child: Text(data[1]))),
-                DataCell(Center(child: Text(data[2]))),
-                DataCell(Center(child: Text('₹ ${data[3]}'))),
-                DataCell(Center(child: Text(data[4]))),
-                DataCell(Center(child: Text('₹ ${data[5]}'))),
-                DataCell(Center(child: Text('₹ ${data[6]}'))),
-                DataCell(Center(child: Text(data[7]))),
-                DataCell(Center(child: Text(data[8]))),
-                DataCell(Center(child: Text(data[9]))),
-                DataCell(Center(child: Text(data[10]))),
-              ]);
-            }).toList(),
+            rows:
+                submittedData.map((data) {
+                  return DataRow(
+                    cells: [
+                      DataCell(Center(child: Text(data[0]))),
+                      DataCell(Center(child: Text(data[1]))),
+                      DataCell(Center(child: Text(data[2]))),
+                      DataCell(Center(child: Text('₹ ${data[3]}'))),
+                      DataCell(Center(child: Text(data[4]))),
+                      DataCell(Center(child: Text('₹ ${data[5]}'))),
+                      DataCell(Center(child: Text('₹ ${data[6]}'))),
+                      DataCell(Center(child: Text(data[7]))),
+                      DataCell(Center(child: Text(data[8]))),
+                      DataCell(Center(child: Text(data[9]))),
+                      DataCell(Center(child: Text(data[10]))),
+                    ],
+                  );
+                }).toList(),
           ),
         ),
       ],

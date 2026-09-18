@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:purchase_inventory/custom_widgets/date_textfield.dart';
-import 'package:purchase_inventory/custom_widgets/textfield.dart';
+import 'package:purchase_inventory/features/widgets/date_textfield.dart';
+import 'package:purchase_inventory/features/widgets/textfield.dart';
 import 'package:get/get.dart';
 
 class SoftwareDataTable extends StatefulWidget {
@@ -85,33 +85,42 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
         Row(
           children: [
             CustomTextField(
-                controller: nameController, labelText: 'Name of Software'),
+              controller: nameController,
+              labelText: 'Name of Software',
+            ),
             const SizedBox(width: 10),
             CustomTextField(
-                controller: specificationController,
-                labelText: 'Company Specification'),
+              controller: specificationController,
+              labelText: 'Company Specification',
+            ),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
             CustomAMTTextField(
-                controller: totalcostController, labelText: 'Total Cost'),
+              controller: totalcostController,
+              labelText: 'Total Cost',
+            ),
             const SizedBox(width: 10),
             CustomAMTTextField(
-                controller: discountedcostController,
-                labelText: 'Discounted Cost'),
+              controller: discountedcostController,
+              labelText: 'Discounted Cost',
+            ),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
             DateField(
-                controller: dateoforderController, labelText: 'Date of Order'),
+              controller: dateoforderController,
+              labelText: 'Date of Order',
+            ),
             const SizedBox(width: 10),
             DateField(
-                controller: dateofdeliveryController,
-                labelText: 'Date of Delivery'),
+              controller: dateofdeliveryController,
+              labelText: 'Date of Delivery',
+            ),
             const SizedBox(width: 10),
             CustomTextField(controller: remarkController, labelText: 'Remarks'),
           ],
@@ -124,40 +133,37 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
                 onPressed: submitData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFFFCD535);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
+                    const EdgeInsets.symmetric(vertical: 12.0),
                   ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      return const BorderSide(
-                        color: Color(0x7EFFFFFF),
-                        width: 1.0,
-                      );
-                    },
-                  ),
+                  backgroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFFFCD535);
+                    }
+                    return const Color(0x13FFFFFF);
+                  }),
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF181A20);
+                    }
+                    return const Color(0xFFFFFFFF);
+                  }),
+                  side: WidgetStateProperty.resolveWith<BorderSide?>((states) {
+                    return const BorderSide(
+                      color: Color(0x7EFFFFFF),
+                      width: 1.0,
+                    );
+                  }),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-                child: const Text(
-                  'Submit',
-                  style: TextStyle(fontSize: 24),
-                ),
+                child: const Text('Submit', style: TextStyle(fontSize: 24)),
               ),
             ),
             const SizedBox(width: 10),
@@ -166,40 +172,40 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
                 onPressed: exportData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF107C41);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
+                    const EdgeInsets.symmetric(vertical: 12.0),
                   ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const BorderSide(
-                          color: Color(0xFF107C41),
-                          width: 1.0,
-                        );
-                      }
+                  backgroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF107C41);
+                    }
+                    return const Color(0x13FFFFFF);
+                  }),
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF181A20);
+                    }
+                    return const Color(0xFFFFFFFF);
+                  }),
+                  side: WidgetStateProperty.resolveWith<BorderSide?>((states) {
+                    if (states.contains(WidgetState.hovered)) {
                       return const BorderSide(
-                        color: Color(0x7EFFFFFF),
+                        color: Color(0xFF107C41),
                         width: 1.0,
                       );
-                    },
-                  ),
+                    }
+                    return const BorderSide(
+                      color: Color(0x7EFFFFFF),
+                      width: 1.0,
+                    );
+                  }),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
                 child: const Text(
@@ -236,80 +242,92 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Sr. No.')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Sr. No.')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Name of Software')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Name of Software')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Company Specification')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Company Specification')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Total Cost')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Total Cost')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Discounted Cost')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Discounted Cost')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Date of Order')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Date of Order')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Date of Delivery')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Date of Delivery')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Remarks')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Remarks')],
+                  ),
                 ),
               ),
               DataColumn(
                 label: Expanded(
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('Ordered by')]),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Ordered by')],
+                  ),
                 ),
               ),
             ],
-            rows: submittedData.map((data) {
-              return DataRow(cells: [
-                DataCell(Center(child: Text(data[0]))),
-                DataCell(Center(child: Text(data[1]))),
-                DataCell(Center(child: Text(data[2]))),
-                DataCell(Center(child: Text('₹ ${data[3]}'))),
-                DataCell(Center(child: Text('₹ ${data[4]}'))),
-                DataCell(Center(child: Text(data[5]))),
-                DataCell(Center(child: Text(data[6]))),
-                DataCell(Center(child: Text(data[7]))),
-                DataCell(Center(child: Text(data[8]))),
-              ]);
-            }).toList(),
+            rows:
+                submittedData.map((data) {
+                  return DataRow(
+                    cells: [
+                      DataCell(Center(child: Text(data[0]))),
+                      DataCell(Center(child: Text(data[1]))),
+                      DataCell(Center(child: Text(data[2]))),
+                      DataCell(Center(child: Text('₹ ${data[3]}'))),
+                      DataCell(Center(child: Text('₹ ${data[4]}'))),
+                      DataCell(Center(child: Text(data[5]))),
+                      DataCell(Center(child: Text(data[6]))),
+                      DataCell(Center(child: Text(data[7]))),
+                      DataCell(Center(child: Text(data[8]))),
+                    ],
+                  );
+                }).toList(),
           ),
         ),
       ],

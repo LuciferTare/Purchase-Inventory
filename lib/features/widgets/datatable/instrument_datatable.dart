@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:purchase_inventory/custom_widgets/date_textfield.dart';
-import 'package:purchase_inventory/custom_widgets/textfield.dart';
+import 'package:get/get.dart';
+import 'package:purchase_inventory/features/widgets/date_textfield.dart';
+import 'package:purchase_inventory/features/widgets/textfield.dart';
 
-class ChemicalDataTable extends StatefulWidget {
-  const ChemicalDataTable({super.key});
+class InstrumentDataTable extends StatefulWidget {
+  const InstrumentDataTable({super.key});
 
   @override
-  State<ChemicalDataTable> createState() => ChemicalDataTableState();
+  State<InstrumentDataTable> createState() => InstrumentDataTableState();
 }
 
-class ChemicalDataTableState extends State<ChemicalDataTable> {
+class InstrumentDataTableState extends State<InstrumentDataTable> {
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController gradeController = TextEditingController();
+  final TextEditingController warrantyController = TextEditingController();
   final TextEditingController rateController = TextEditingController();
   final TextEditingController quantityController = TextEditingController();
   final TextEditingController totalcostController = TextEditingController();
@@ -25,11 +24,12 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
   final TextEditingController remarkController = TextEditingController();
 
   List<List<String>> submittedData = [];
+
   int srNo = 1;
 
   void submitData() {
     if (nameController.text.isEmpty ||
-        gradeController.text.isEmpty ||
+        warrantyController.text.isEmpty ||
         rateController.text.isEmpty ||
         quantityController.text.isEmpty ||
         totalcostController.text.isEmpty ||
@@ -50,7 +50,7 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
     List<String> rowData = [
       srNo.toString(),
       nameController.text,
-      gradeController.text,
+      warrantyController.text,
       rateController.text,
       quantityController.text,
       totalcostController.text,
@@ -67,7 +67,7 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
     });
 
     nameController.clear();
-    gradeController.clear();
+    warrantyController.clear();
     rateController.clear();
     quantityController.clear();
     totalcostController.clear();
@@ -94,9 +94,14 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
         Row(
           children: [
             CustomTextField(
-                controller: nameController, labelText: 'Name of Company'),
+              controller: nameController,
+              labelText: 'Name of Instrument Model',
+            ),
             const SizedBox(width: 10),
-            CustomTextField(controller: gradeController, labelText: 'Grade'),
+            CustomTextField(
+              controller: warrantyController,
+              labelText: 'Warranty',
+            ),
             const SizedBox(width: 10),
             CustomAMTTextField(controller: rateController, labelText: 'Rate'),
           ],
@@ -105,25 +110,33 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
         Row(
           children: [
             CustomTextField(
-                controller: quantityController, labelText: 'Quantity'),
+              controller: quantityController,
+              labelText: 'Quantity',
+            ),
             const SizedBox(width: 10),
             CustomAMTTextField(
-                controller: totalcostController, labelText: 'Total Cost'),
+              controller: totalcostController,
+              labelText: 'Total Cost',
+            ),
             const SizedBox(width: 10),
             CustomAMTTextField(
-                controller: discountedcostController,
-                labelText: 'Discounted Cost'),
+              controller: discountedcostController,
+              labelText: 'Discounted Cost',
+            ),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
             DateField(
-                controller: dateoforderController, labelText: 'Date of Order'),
+              controller: dateoforderController,
+              labelText: 'Date of Order',
+            ),
             const SizedBox(width: 10),
             DateField(
-                controller: dateofdeliveryController,
-                labelText: 'Date of Delivery'),
+              controller: dateofdeliveryController,
+              labelText: 'Date of Delivery',
+            ),
             const SizedBox(width: 10),
             CustomTextField(controller: remarkController, labelText: 'Remarks'),
           ],
@@ -136,40 +149,37 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
                 onPressed: submitData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFFFCD535);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
+                    const EdgeInsets.symmetric(vertical: 12.0),
                   ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      return const BorderSide(
-                        color: Color(0x7EFFFFFF),
-                        width: 1.0,
-                      );
-                    },
-                  ),
+                  backgroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFFFCD535);
+                    }
+                    return const Color(0x13FFFFFF);
+                  }),
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF181A20);
+                    }
+                    return const Color(0xFFFFFFFF);
+                  }),
+                  side: WidgetStateProperty.resolveWith<BorderSide?>((states) {
+                    return const BorderSide(
+                      color: Color(0x7EFFFFFF),
+                      width: 1.0,
+                    );
+                  }),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-                child: const Text(
-                  'Submit',
-                  style: TextStyle(fontSize: 24),
-                ),
+                child: const Text('Submit', style: TextStyle(fontSize: 24)),
               ),
             ),
             const SizedBox(width: 10),
@@ -178,40 +188,40 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
                 onPressed: exportData,
                 style: ButtonStyle(
                   padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 12.0)),
-                  backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF107C41);
-                      }
-                      return const Color(0x13FFFFFF);
-                    },
+                    const EdgeInsets.symmetric(vertical: 12.0),
                   ),
-                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const Color(0xFF181A20);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    },
-                  ),
-                  side: WidgetStateProperty.resolveWith<BorderSide?>(
-                    (states) {
-                      if (states.contains(WidgetState.hovered)) {
-                        return const BorderSide(
-                          color: Color(0xFF107C41),
-                          width: 1.0,
-                        );
-                      }
+                  backgroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF107C41);
+                    }
+                    return const Color(0x13FFFFFF);
+                  }),
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                    states,
+                  ) {
+                    if (states.contains(WidgetState.hovered)) {
+                      return const Color(0xFF181A20);
+                    }
+                    return const Color(0xFFFFFFFF);
+                  }),
+                  side: WidgetStateProperty.resolveWith<BorderSide?>((states) {
+                    if (states.contains(WidgetState.hovered)) {
                       return const BorderSide(
-                        color: Color(0x7EFFFFFF),
+                        color: Color(0xFF107C41),
                         width: 1.0,
                       );
-                    },
-                  ),
+                    }
+                    return const BorderSide(
+                      color: Color(0x7EFFFFFF),
+                      width: 1.0,
+                    );
+                  }),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
                 child: const Text(
@@ -246,8 +256,8 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
             ),
             columns: const [
               DataColumn(label: Text('Sr. No.')),
-              DataColumn(label: Text('Name of Company')),
-              DataColumn(label: Text('Grade')),
+              DataColumn(label: Text('Name of Instrument Model')),
+              DataColumn(label: Text('Warranty')),
               DataColumn(label: Text('Rate')),
               DataColumn(label: Text('Quantity')),
               DataColumn(label: Text('Total Cost')),
@@ -257,21 +267,24 @@ class ChemicalDataTableState extends State<ChemicalDataTable> {
               DataColumn(label: Text('Remarks')),
               DataColumn(label: Text('Ordered by')),
             ],
-            rows: submittedData.map((data) {
-              return DataRow(cells: [
-                DataCell(Center(child: Text(data[0]))),
-                DataCell(Center(child: Text(data[1]))),
-                DataCell(Center(child: Text(data[2]))),
-                DataCell(Center(child: Text('₹ ${data[3]}'))),
-                DataCell(Center(child: Text(data[4]))),
-                DataCell(Center(child: Text('₹ ${data[5]}'))),
-                DataCell(Center(child: Text('₹ ${data[6]}'))),
-                DataCell(Center(child: Text(data[7]))),
-                DataCell(Center(child: Text(data[8]))),
-                DataCell(Center(child: Text(data[9]))),
-                DataCell(Center(child: Text(data[10]))),
-              ]);
-            }).toList(),
+            rows:
+                submittedData.map((data) {
+                  return DataRow(
+                    cells: [
+                      DataCell(Center(child: Text(data[0]))),
+                      DataCell(Center(child: Text(data[1]))),
+                      DataCell(Center(child: Text(data[2]))),
+                      DataCell(Center(child: Text('₹ ${data[3]}'))),
+                      DataCell(Center(child: Text(data[4]))),
+                      DataCell(Center(child: Text('₹ ${data[5]}'))),
+                      DataCell(Center(child: Text('₹ ${data[6]}'))),
+                      DataCell(Center(child: Text(data[7]))),
+                      DataCell(Center(child: Text(data[8]))),
+                      DataCell(Center(child: Text(data[9]))),
+                      DataCell(Center(child: Text(data[10]))),
+                    ],
+                  );
+                }).toList(),
           ),
         ),
       ],

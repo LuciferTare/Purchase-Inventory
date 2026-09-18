@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:purchase_inventory/custom_widgets/sidebar.dart';
+import 'package:purchase_inventory/features/widgets/sidebar.dart';
 import 'package:purchase_inventory/utlis/routes.dart';
 
 class Dashboard extends StatefulWidget {
@@ -104,10 +104,11 @@ class DashboardState extends State<Dashboard> {
                         child: CircleAvatar(
                           backgroundColor: Color(0xFF181A20),
                           radius: 25,
-                          backgroundImage:
-                              AssetImage('assets/Icons/Profile.png'),
+                          backgroundImage: AssetImage(
+                            'assets/Icons/Profile.png',
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                   const SizedBox(height: 20),
@@ -116,11 +117,11 @@ class DashboardState extends State<Dashboard> {
                       itemCount: boxContent.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 15,
-                        mainAxisSpacing: 15,
-                        childAspectRatio: 1.525,
-                      ),
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 15,
+                            mainAxisSpacing: 15,
+                            childAspectRatio: 1.525,
+                          ),
                       itemBuilder: (context, index) {
                         final content = boxContent[index];
                         return GestureDetector(

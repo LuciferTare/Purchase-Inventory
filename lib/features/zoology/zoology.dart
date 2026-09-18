@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:purchase_inventory/custom_widgets/appbar.dart';
-import 'package:purchase_inventory/custom_widgets/sidebar.dart';
-import 'package:purchase_inventory/custom_widgets/datatable/category_button_row.dart';
-import 'package:purchase_inventory/custom_widgets/datatable/chemical_datatable.dart';
-import 'package:purchase_inventory/custom_widgets/datatable/glassware_datatable.dart';
-import 'package:purchase_inventory/custom_widgets/datatable/instrument_datatable.dart';
-import 'package:purchase_inventory/custom_widgets/datatable/software_datatable.dart';
-import 'package:purchase_inventory/custom_widgets/datatable/teaching_aids_datatable.dart';
+import 'package:purchase_inventory/features/widgets/appbar.dart';
+import 'package:purchase_inventory/features/widgets/sidebar.dart';
+import 'package:purchase_inventory/features/widgets/datatable/category_button_row.dart';
+import 'package:purchase_inventory/features/widgets/datatable/chemical_datatable.dart';
+import 'package:purchase_inventory/features/widgets/datatable/glassware_datatable.dart';
+import 'package:purchase_inventory/features/widgets/datatable/instrument_datatable.dart';
+import 'package:purchase_inventory/features/widgets/datatable/software_datatable.dart';
+import 'package:purchase_inventory/features/widgets/datatable/teaching_aids_datatable.dart';
 
 class Zoology extends StatefulWidget {
   const Zoology({super.key});
