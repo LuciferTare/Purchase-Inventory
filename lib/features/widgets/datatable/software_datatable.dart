@@ -11,27 +11,25 @@ class SoftwareDataTable extends StatefulWidget {
 }
 
 class SoftwareDataTableState extends State<SoftwareDataTable> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController specificationController = TextEditingController();
-  final TextEditingController totalcostController = TextEditingController();
-  final TextEditingController discountedcostController =
-      TextEditingController();
-  final TextEditingController dateoforderController = TextEditingController();
-  final TextEditingController dateofdeliveryController =
-      TextEditingController();
-  final TextEditingController remarkController = TextEditingController();
+  final TextEditingController nameC = TextEditingController();
+  final TextEditingController specificationC = TextEditingController();
+  final TextEditingController totalcostC = TextEditingController();
+  final TextEditingController discountedcostC = TextEditingController();
+  final TextEditingController dateoforderC = TextEditingController();
+  final TextEditingController dateofdeliveryC = TextEditingController();
+  final TextEditingController remarkC = TextEditingController();
 
   List<List<String>> submittedData = [];
   int srNo = 1;
 
   void submitData() {
-    if (nameController.text.isEmpty ||
-        specificationController.text.isEmpty ||
-        totalcostController.text.isEmpty ||
-        discountedcostController.text.isEmpty ||
-        dateoforderController.text.isEmpty ||
-        dateofdeliveryController.text.isEmpty ||
-        remarkController.text.isEmpty) {
+    if (nameC.text.isEmpty ||
+        specificationC.text.isEmpty ||
+        totalcostC.text.isEmpty ||
+        discountedcostC.text.isEmpty ||
+        dateoforderC.text.isEmpty ||
+        dateofdeliveryC.text.isEmpty ||
+        remarkC.text.isEmpty) {
       Get.snackbar(
         'Error',
         'Please fill out all required fields.',
@@ -44,13 +42,13 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
 
     List<String> rowData = [
       srNo.toString(),
-      nameController.text,
-      specificationController.text,
-      totalcostController.text,
-      discountedcostController.text,
-      dateoforderController.text,
-      dateofdeliveryController.text,
-      remarkController.text,
+      nameC.text,
+      specificationC.text,
+      totalcostC.text,
+      discountedcostC.text,
+      dateoforderC.text,
+      dateofdeliveryC.text,
+      remarkC.text,
       'Fixed Name',
     ];
 
@@ -59,13 +57,13 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
       srNo++;
     });
 
-    nameController.clear();
-    specificationController.clear();
-    totalcostController.clear();
-    discountedcostController.clear();
-    dateoforderController.clear();
-    dateofdeliveryController.clear();
-    remarkController.clear();
+    nameC.clear();
+    specificationC.clear();
+    totalcostC.clear();
+    discountedcostC.clear();
+    dateoforderC.clear();
+    dateofdeliveryC.clear();
+    remarkC.clear();
     Get.snackbar(
       'Success',
       'Your entry has been submitted.',
@@ -84,13 +82,10 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
         const SizedBox(height: 10),
         Row(
           children: [
-            CustomTextField(
-              controller: nameController,
-              labelText: 'Name of Software',
-            ),
+            CustomTextField(controller: nameC, labelText: 'Name of Software'),
             const SizedBox(width: 10),
             CustomTextField(
-              controller: specificationController,
+              controller: specificationC,
               labelText: 'Company Specification',
             ),
           ],
@@ -98,13 +93,10 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
         const SizedBox(height: 10),
         Row(
           children: [
-            CustomAMTTextField(
-              controller: totalcostController,
-              labelText: 'Total Cost',
-            ),
+            CustomAMTTextField(controller: totalcostC, labelText: 'Total Cost'),
             const SizedBox(width: 10),
             CustomAMTTextField(
-              controller: discountedcostController,
+              controller: discountedcostC,
               labelText: 'Discounted Cost',
             ),
           ],
@@ -112,17 +104,14 @@ class SoftwareDataTableState extends State<SoftwareDataTable> {
         const SizedBox(height: 10),
         Row(
           children: [
-            DateField(
-              controller: dateoforderController,
-              labelText: 'Date of Order',
-            ),
+            DateField(controller: dateoforderC, labelText: 'Date of Order'),
             const SizedBox(width: 10),
             DateField(
-              controller: dateofdeliveryController,
+              controller: dateofdeliveryC,
               labelText: 'Date of Delivery',
             ),
             const SizedBox(width: 10),
-            CustomTextField(controller: remarkController, labelText: 'Remarks'),
+            CustomTextField(controller: remarkC, labelText: 'Remarks'),
           ],
         ),
         const SizedBox(height: 10),

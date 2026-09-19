@@ -7,7 +7,6 @@ import 'package:purchase_inventory/features/computer_science/binding/computer_sc
 import 'package:purchase_inventory/features/forget_password/binding/forget_password_binding.dart';
 import 'package:purchase_inventory/features/forget_password/forget_password.dart';
 import 'package:purchase_inventory/features/information_technology/binding/information_technology_binding.dart';
-import 'package:purchase_inventory/features/dashboard/binding/dashboard_binding.dart';
 import 'package:purchase_inventory/features/login/binding/login_binding.dart';
 import 'package:purchase_inventory/features/mathematics/binding/mathematics_binding.dart';
 import 'package:purchase_inventory/features/physics/binding/physics_binding.dart';
@@ -17,15 +16,12 @@ import 'package:purchase_inventory/features/zoology/binding/zoology_binding.dart
 import 'package:purchase_inventory/features/biotech/biotech.dart';
 import 'package:purchase_inventory/features/chemistry/chemistry.dart';
 import 'package:purchase_inventory/features/computer_science/computer_science.dart';
-import 'package:purchase_inventory/features/dashboard/dashboard.dart';
 import 'package:purchase_inventory/features/information_technology/information_technology.dart';
 import 'package:purchase_inventory/features/login/login.dart';
 import 'package:purchase_inventory/features/botany/botany.dart';
 import 'package:purchase_inventory/features/mathematics/mathematics.dart';
 import 'package:purchase_inventory/features/physics/physics.dart';
 import 'package:purchase_inventory/features/zoology/zoology.dart';
-
-import 'package:purchase_inventory/S.dart';
 
 class MyRoutes {
   static const String initialRoute = '/initialRoute';
@@ -41,104 +37,60 @@ class MyRoutes {
   static String mathematicsRoute = "/Mathematics";
   static String itRoute = "/IT";
   static String csRoute = "/CS";
-  static String sRoute = "/S";
 
   static List<GetPage> pages = [
     GetPage(
       name: initialRoute,
       page: () => const SignUp(),
-      bindings: [
-        SignUpBinding(),
-      ],
-    ),
-    GetPage(
-      name: dashboardRoute,
-      page: () => const Dashboard(),
-      bindings: [
-        DashboardBinding(),
-      ],
+      binding: SignUpBinding(),
     ),
     GetPage(
       name: loginRoute,
       page: () => const Login(),
-      bindings: [
-        LoginBinding(),
-      ],
+      binding: LoginBinding(),
     ),
     GetPage(
       name: signUpRoute,
       page: () => const SignUp(),
-      bindings: [
-        SignUpBinding(),
-      ],
+      binding: SignUpBinding(),
     ),
     GetPage(
       name: forgetPasswordRoute,
       page: () => const ForgetPassword(),
-      bindings: [
-        ForgetPasswordBinding(),
-      ],
+      binding: ForgetPasswordBinding(),
     ),
     GetPage(
       name: botanyRoute,
       page: () => const Botany(),
-      bindings: [
-        BotanyBinding(),
-      ],
+      binding: BotanyBinding(),
     ),
     GetPage(
       name: zoologyRoute,
       page: () => const Zoology(),
-      bindings: [
-        ZoologyBinding(),
-      ],
+      binding: ZoologyBinding(),
     ),
     GetPage(
       name: physicsRoute,
       page: () => const Physics(),
-      bindings: [
-        PhysicsBinding(),
-      ],
+      binding: PhysicsBinding(),
     ),
     GetPage(
       name: chemistryRoute,
       page: () => const Chemistry(),
-      bindings: [
-        ChemistryBinding(),
-      ],
+      binding: ChemistryBinding(),
     ),
     GetPage(
       name: biotechRoute,
       page: () => const Biotech(),
-      bindings: [
-        BiotechBinding(),
-      ],
+      binding: BiotechBinding(),
     ),
     GetPage(
       name: mathematicsRoute,
       page: () => const Mathematics(),
-      bindings: [
-        MathematicsBinding(),
-      ],
+      binding: MathematicsBinding(),
     ),
-    GetPage(
-      name: itRoute,
-      page: () => const IT(),
-      bindings: [
-        ITBinding(),
-      ],
-    ),
-    GetPage(
-      name: csRoute,
-      page: () => const CS(),
-      bindings: [
-        CSBinding(),
-      ],
-    ),
-    GetPage(
-      name: sRoute,
-      page: () => const S(),
-    ),
+    GetPage(name: itRoute, page: () => const IT(), binding: ITBinding()),
+    GetPage(name: csRoute, page: () => const CS(), binding: CSBinding()),
   ];
 }
 

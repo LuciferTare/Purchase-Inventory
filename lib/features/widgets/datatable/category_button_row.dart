@@ -38,9 +38,7 @@ class CategoryButtonRowState extends State<CategoryButtonRow> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7.5)),
         backgroundColor:
             isSelected ? const Color(0xFFFFFFFF) : const Color(0xFF181A20),
       ),

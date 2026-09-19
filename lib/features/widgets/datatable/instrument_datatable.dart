@@ -11,32 +11,30 @@ class InstrumentDataTable extends StatefulWidget {
 }
 
 class InstrumentDataTableState extends State<InstrumentDataTable> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController warrantyController = TextEditingController();
-  final TextEditingController rateController = TextEditingController();
-  final TextEditingController quantityController = TextEditingController();
-  final TextEditingController totalcostController = TextEditingController();
-  final TextEditingController discountedcostController =
-      TextEditingController();
-  final TextEditingController dateoforderController = TextEditingController();
-  final TextEditingController dateofdeliveryController =
-      TextEditingController();
-  final TextEditingController remarkController = TextEditingController();
+  final TextEditingController nameC = TextEditingController();
+  final TextEditingController warrantyC = TextEditingController();
+  final TextEditingController rateC = TextEditingController();
+  final TextEditingController quantityC = TextEditingController();
+  final TextEditingController totalcostC = TextEditingController();
+  final TextEditingController discountedcostC = TextEditingController();
+  final TextEditingController dateoforderC = TextEditingController();
+  final TextEditingController dateofdeliveryC = TextEditingController();
+  final TextEditingController remarkC = TextEditingController();
 
   List<List<String>> submittedData = [];
 
   int srNo = 1;
 
   void submitData() {
-    if (nameController.text.isEmpty ||
-        warrantyController.text.isEmpty ||
-        rateController.text.isEmpty ||
-        quantityController.text.isEmpty ||
-        totalcostController.text.isEmpty ||
-        discountedcostController.text.isEmpty ||
-        dateoforderController.text.isEmpty ||
-        dateofdeliveryController.text.isEmpty ||
-        remarkController.text.isEmpty) {
+    if (nameC.text.isEmpty ||
+        warrantyC.text.isEmpty ||
+        rateC.text.isEmpty ||
+        quantityC.text.isEmpty ||
+        totalcostC.text.isEmpty ||
+        discountedcostC.text.isEmpty ||
+        dateoforderC.text.isEmpty ||
+        dateofdeliveryC.text.isEmpty ||
+        remarkC.text.isEmpty) {
       Get.snackbar(
         'Error',
         'Please fill out all required fields.',
@@ -49,15 +47,15 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
 
     List<String> rowData = [
       srNo.toString(),
-      nameController.text,
-      warrantyController.text,
-      rateController.text,
-      quantityController.text,
-      totalcostController.text,
-      discountedcostController.text,
-      dateoforderController.text,
-      dateofdeliveryController.text,
-      remarkController.text,
+      nameC.text,
+      warrantyC.text,
+      rateC.text,
+      quantityC.text,
+      totalcostC.text,
+      discountedcostC.text,
+      dateoforderC.text,
+      dateofdeliveryC.text,
+      remarkC.text,
       'Fixed Name',
     ];
 
@@ -66,15 +64,15 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
       srNo++;
     });
 
-    nameController.clear();
-    warrantyController.clear();
-    rateController.clear();
-    quantityController.clear();
-    totalcostController.clear();
-    discountedcostController.clear();
-    dateoforderController.clear();
-    dateofdeliveryController.clear();
-    remarkController.clear();
+    nameC.clear();
+    warrantyC.clear();
+    rateC.clear();
+    quantityC.clear();
+    totalcostC.clear();
+    discountedcostC.clear();
+    dateoforderC.clear();
+    dateofdeliveryC.clear();
+    remarkC.clear();
     Get.snackbar(
       'Success',
       'Your entry has been submitted.',
@@ -94,33 +92,24 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
         Row(
           children: [
             CustomTextField(
-              controller: nameController,
+              controller: nameC,
               labelText: 'Name of Instrument Model',
             ),
             const SizedBox(width: 10),
-            CustomTextField(
-              controller: warrantyController,
-              labelText: 'Warranty',
-            ),
+            CustomTextField(controller: warrantyC, labelText: 'Warranty'),
             const SizedBox(width: 10),
-            CustomAMTTextField(controller: rateController, labelText: 'Rate'),
+            CustomAMTTextField(controller: rateC, labelText: 'Rate'),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
-            CustomTextField(
-              controller: quantityController,
-              labelText: 'Quantity',
-            ),
+            CustomTextField(controller: quantityC, labelText: 'Quantity'),
+            const SizedBox(width: 10),
+            CustomAMTTextField(controller: totalcostC, labelText: 'Total Cost'),
             const SizedBox(width: 10),
             CustomAMTTextField(
-              controller: totalcostController,
-              labelText: 'Total Cost',
-            ),
-            const SizedBox(width: 10),
-            CustomAMTTextField(
-              controller: discountedcostController,
+              controller: discountedcostC,
               labelText: 'Discounted Cost',
             ),
           ],
@@ -128,17 +117,14 @@ class InstrumentDataTableState extends State<InstrumentDataTable> {
         const SizedBox(height: 10),
         Row(
           children: [
-            DateField(
-              controller: dateoforderController,
-              labelText: 'Date of Order',
-            ),
+            DateField(controller: dateoforderC, labelText: 'Date of Order'),
             const SizedBox(width: 10),
             DateField(
-              controller: dateofdeliveryController,
+              controller: dateofdeliveryC,
               labelText: 'Date of Delivery',
             ),
             const SizedBox(width: 10),
-            CustomTextField(controller: remarkController, labelText: 'Remarks'),
+            CustomTextField(controller: remarkC, labelText: 'Remarks'),
           ],
         ),
         const SizedBox(height: 10),

@@ -13,17 +13,15 @@ class TeachingAidsDataTable extends StatefulWidget {
 class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
   String selectedValue = '1';
 
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController nameC = TextEditingController();
   final TextEditingController typeController = TextEditingController();
-  final TextEditingController rateController = TextEditingController();
-  final TextEditingController quantityController = TextEditingController();
-  final TextEditingController totalcostController = TextEditingController();
-  final TextEditingController discountedcostController =
-      TextEditingController();
-  final TextEditingController dateoforderController = TextEditingController();
-  final TextEditingController dateofdeliveryController =
-      TextEditingController();
-  final TextEditingController remarkController = TextEditingController();
+  final TextEditingController rateC = TextEditingController();
+  final TextEditingController quantityC = TextEditingController();
+  final TextEditingController totalcostC = TextEditingController();
+  final TextEditingController discountedcostC = TextEditingController();
+  final TextEditingController dateoforderC = TextEditingController();
+  final TextEditingController dateofdeliveryC = TextEditingController();
+  final TextEditingController remarkC = TextEditingController();
 
   List<List<String>> submittedData = [];
   int srNo = 1;
@@ -38,15 +36,15 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
   };
 
   void submitData() {
-    if (nameController.text.isEmpty ||
+    if (nameC.text.isEmpty ||
         typeController.text.isEmpty ||
-        rateController.text.isEmpty ||
-        quantityController.text.isEmpty ||
-        totalcostController.text.isEmpty ||
-        discountedcostController.text.isEmpty ||
-        dateoforderController.text.isEmpty ||
-        dateofdeliveryController.text.isEmpty ||
-        remarkController.text.isEmpty) {
+        rateC.text.isEmpty ||
+        quantityC.text.isEmpty ||
+        totalcostC.text.isEmpty ||
+        discountedcostC.text.isEmpty ||
+        dateoforderC.text.isEmpty ||
+        dateofdeliveryC.text.isEmpty ||
+        remarkC.text.isEmpty) {
       Get.snackbar(
         'Error',
         'Please fill out all required fields.',
@@ -59,15 +57,15 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
 
     List<String> rowData = [
       srNo.toString(),
-      nameController.text,
+      nameC.text,
       typeMapping[selectedValue] ?? '',
-      rateController.text,
-      quantityController.text,
-      totalcostController.text,
-      discountedcostController.text,
-      dateoforderController.text,
-      dateofdeliveryController.text,
-      remarkController.text,
+      rateC.text,
+      quantityC.text,
+      totalcostC.text,
+      discountedcostC.text,
+      dateoforderC.text,
+      dateofdeliveryC.text,
+      remarkC.text,
       'Fixed Name',
     ];
 
@@ -76,15 +74,15 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
       srNo++;
     });
 
-    nameController.clear();
+    nameC.clear();
     typeController.clear();
-    rateController.clear();
-    quantityController.clear();
-    totalcostController.clear();
-    discountedcostController.clear();
-    dateoforderController.clear();
-    dateofdeliveryController.clear();
-    remarkController.clear();
+    rateC.clear();
+    quantityC.clear();
+    totalcostC.clear();
+    discountedcostC.clear();
+    dateoforderC.clear();
+    dateofdeliveryC.clear();
+    remarkC.clear();
     Get.snackbar(
       'Success',
       'Your entry has been submitted.',
@@ -109,10 +107,7 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
         const SizedBox(height: 10),
         Row(
           children: [
-            CustomTextField(
-              controller: nameController,
-              labelText: 'Name of Aids',
-            ),
+            CustomTextField(controller: nameC, labelText: 'Name of Aids'),
             const SizedBox(width: 10),
             Expanded(
               child: Container(
@@ -178,24 +173,18 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
               ),
             ),
             const SizedBox(width: 10),
-            CustomAMTTextField(controller: rateController, labelText: 'Rate'),
+            CustomAMTTextField(controller: rateC, labelText: 'Rate'),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
-            CustomTextField(
-              controller: quantityController,
-              labelText: 'Quantity',
-            ),
+            CustomTextField(controller: quantityC, labelText: 'Quantity'),
+            const SizedBox(width: 10),
+            CustomAMTTextField(controller: totalcostC, labelText: 'Total Cost'),
             const SizedBox(width: 10),
             CustomAMTTextField(
-              controller: totalcostController,
-              labelText: 'Total Cost',
-            ),
-            const SizedBox(width: 10),
-            CustomAMTTextField(
-              controller: discountedcostController,
+              controller: discountedcostC,
               labelText: 'Discounted Cost',
             ),
           ],
@@ -203,17 +192,14 @@ class TeachingAidsDataTableState extends State<TeachingAidsDataTable> {
         const SizedBox(height: 10),
         Row(
           children: [
-            DateField(
-              controller: dateoforderController,
-              labelText: 'Date of Order',
-            ),
+            DateField(controller: dateoforderC, labelText: 'Date of Order'),
             const SizedBox(width: 10),
             DateField(
-              controller: dateofdeliveryController,
+              controller: dateofdeliveryC,
               labelText: 'Date of Delivery',
             ),
             const SizedBox(width: 10),
-            CustomTextField(controller: remarkController, labelText: 'Remarks'),
+            CustomTextField(controller: remarkC, labelText: 'Remarks'),
           ],
         ),
         const SizedBox(height: 10),
